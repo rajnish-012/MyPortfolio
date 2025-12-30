@@ -3,12 +3,8 @@ import profile from "../assets/profile.jpg";
 
 const Hero = () => {
   return (
-    <section
-      id="hero"
-      className="min-h-screen flex items-center pt-28 px-6"
-    >
+    <section id="hero" className="min-h-screen flex items-center pt-28 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
-        
         {/* LEFT: TEXT */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -16,15 +12,14 @@ const Hero = () => {
           transition={{ duration: 0.7 }}
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Hi, I’m{" "}
-            <span className="text-sky-400">Rajnish Kumar</span>
+            Hi, I’m <span className="text-sky-400">Rajnish Kumar</span>
           </h1>
 
           <p className="max-w-xl text-lg md:text-xl text-slate-400 leading-relaxed">
             Final-year B.Tech Computer Science student at{" "}
-            <span className="text-sky-400">IIIT Tiruchirappalli</span>.
-            Frontend Developer focused on building clean, responsive,
-            real-world web applications using React.
+            <span className="text-sky-400">IIIT Tiruchirappalli</span>. Software
+            Engineer & Full Stack Developer passionate about building modern web
+            applications.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -73,7 +68,6 @@ const Hero = () => {
             />
           </div>
         </motion.div>
-
       </div>
     </section>
   );

@@ -1,30 +1,144 @@
 import { motion } from "framer-motion";
 
 const projects = [
+  
   {
-    title: "Personal Portfolio",
+    title: "MyPortfolio",
     description:
-      "A modern, responsive developer portfolio built with React and Tailwind CSS to showcase skills and projects.",
-    tech: ["React", "Tailwind CSS", "Vite"],
-    github: "https://github.com/rajnish-012",
-    live: "#",
+      "Personal portfolio site showcasing projects, skills, and experience.",
+    tech: ["React", "Tailwind CSS", "JavaScript"],
+    github: "https://github.com/rajnish-012/MyPortfolio",
+    live: "#" 
   },
   {
-    title: "EasyAppoint",
+    title: "soil-farming-agent",
     description:
-      "An appointment booking system with separate dashboards for clients and companies.",
-    tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    github: "#",
-    live: "#",
+      "Role-based agricultural management platform for farmers, distributors, and admins. Integrated Firebase Auth & Hosting.",
+    tech: ["CSS", "HTML" , "javaScript", "Firebase" , " Firestore"],
+    github: "https://github.com/rajnish-012/soil-farming-agent",
+    live: "#"
   },
   {
-    title: "Quiz Application",
+    title: "react-learning",
     description:
-      "Interactive quiz app with timer, scoring, and result summary.",
+      "React practice project — learning React concepts and building small features.",
+    tech: ["JavaScript", "React"],
+    github: "https://github.com/rajnish-012/react-learning",
+    live: "#"
+  },
+  {
+    title: "My-Portfolio",
+    description:
+      "Another portfolio website version (HTML based).",
     tech: ["HTML", "CSS", "JavaScript"],
-    github: "#",
-    live: "#",
+    github: "https://github.com/rajnish-012/My-Portfolio",
+    live: "#"
   },
+  {
+    title: "EasyCook",
+    description:
+      "JavaScript application for cooking recipes or easy cook features (fill details).",
+    tech: ["JavaScript"],
+    github: "https://github.com/rajnish-012/EasyCook",
+    live: "#"
+  },
+  
+  {
+    title: "Basic Calculator",
+    description:
+      "A simple, responsive web-based calculator built using HTML, CSS, and JavaScript. It supports standard arithmetic operations with keyboard input and intuitive error handling.", 
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/rajnish-012/Basic-Calculator",
+    live: "https://basic-calculator-rnyk.vercel.app" // from README demo link :contentReference[oaicite:1]{index=1}
+  },
+  {
+    title: "Tic Tac Toe",
+    description:
+      "A responsive, two-player browser game with automatic win detection and a clean user interface.",
+    tech: ["HTML", "CSS", "JavaScript"], // adjust if it uses Python or something else
+    github: "https://github.com/rajnish-012/Tic-Tac-Toe",
+    live: "#" // add live link if deployed
+  },
+  {
+    title: "Rock Paper Scissor",
+    description:
+      "A modern take on the classic game with animations, score tracking, and smooth UX.",
+    tech: ["HTML", "CSS", "JavaScript"], // change this if the project is Python or another language
+    github: "https://github.com/rajnish-012/rock-paper-scissor",
+    live: "#" // add live link if deployed
+  },
+  {
+    title: "Login and Register",
+    description:
+      "Clean authentication UI with modern form design and transitions. Great template for web apps.",
+    tech: ["HTML", "CSS", "JavaScript"], // add backend tech if used (PHP, Node, etc.)
+    github: "https://github.com/rajnish-012/Login-and-Register",
+    live: "#" // add live link if deployed
+  },
+  {
+    title: "Amazone-Clone",
+    description:
+      "Frontend replica of Amazon homepage with responsive design and interactive sections.",
+    tech: ["HTML", "CSS"],
+    github: "https://github.com/rajnish-012/Amazone-Clone",
+    live: "#"
+  },
+  {
+    title: "magic-lcm-game",
+    description:
+      "Interactive math game that helps childs learn LCM concepts through challenges and animations.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/rajnish-012/magic-lcm-game",
+    live: "#"
+  },
+  {
+    title: "Basic-Calculator",
+    description:
+      "A simple calculator supporting all basic arithmetic operations with modern UI.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/rajnish-012/Basic-Calculator",
+    live: "#"
+  },
+  {
+    title: "simplelang-compiler",
+    description:
+      "Basic compiler implementation for a simple language (from name — add details).",
+    tech: ["Python", "Compiler Concepts"],
+    github: "https://github.com/rajnish-012/simplelang-compiler",
+    live: "#"
+  },
+  {
+    title: "CryptoBot",
+    description:
+      "Automated trading bot using machine learning to predict cryptocurrency trends and execute trades with real-time data.",
+    tech: ["Python"],
+    github: "https://github.com/rajnish-012/CryptoBot",
+    live: "#"
+  },
+  {
+    title: "AI-Tool-Integrator-Report",
+    description:
+      "Report related to an AI tool integrator — include summary from README.",
+    tech: ["Documentation", "AI"],
+    github: "https://github.com/rajnish-012/AI-Tool-Integrator-Report",
+    live: "#"
+  },
+  {
+    title: "delivery-management-system",
+    description:
+      "Go Order tracking and delivery system built with Go, Docker, PostgreSQL, and Redis. Real-time updates for admins and users.",
+    tech: ["Go"],
+    github: "https://github.com/rajnish-012/delivery-management-system",
+    live: "#"
+  },
+  {
+    title: "frontend-assignment",
+    description:
+      "React + TypeScript + TailwindCSS component assignment with Storybook.",
+    tech: ["React", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/rajnish-012/frontend-assignment",
+    live: "#"
+  }
 ];
 
 const Projects = () => {
@@ -41,8 +155,7 @@ const Projects = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Projects</h2>
           <p className="text-slate-400 max-w-2xl">
-            A selection of projects that demonstrate my frontend skills and
-            real-world problem solving.
+            A collection of my most creative and technically challenging work — blending design, logic, and performance.
           </p>
         </motion.div>
 
