@@ -68,8 +68,8 @@ const Hero = () => {
             <img
               src={profile}
               alt="Rajnish Kumar"
-              className="relative w-64 h-64 md:w-80 md:h-80 rounded-full
-                         object-cover shadow-xl"
+              className="relative w-64 h-full md:w-80 md:h-80 rounded-full
+                         object-top shadow-xl"
             />
           </div>
         </motion.div>
