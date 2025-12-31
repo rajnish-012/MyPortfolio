@@ -30,7 +30,7 @@ const Hero = () => {
             >
               View Projects
             </a>
-
+            
             <a
               href="https://github.com/rajnish-012"
               target="_blank"
@@ -53,19 +53,26 @@ const Hero = () => {
 
         {/* RIGHT: IMAGE */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
           className="flex justify-center md:justify-end"
         >
           <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-sky-400/20 blur-2xl"></div>
-            <img
-              src={profile}
-              alt="Rajnish Kumar"
-              className="relative w-64 h-full md:w-80 md:h-80 rounded-full
-                         object-top shadow-xl"
-            />
+
+            {/* Glow */}
+            <div className="absolute inset-0 rounded-full bg-sky-400/20 blur-3xl"></div>
+
+            {/* Image Wrapper */}
+            <div className="relative rounded-full p-1 bg-gradient-to-br from-sky-400/60 to-transparent">
+              <img
+                src={profile}
+                alt="Rajnish Kumar"
+                className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover
+                           shadow-2xl border border-slate-800"
+              />
+            </div>
+
           </div>
         </motion.div>
       </div>
