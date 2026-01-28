@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" fill="none">
+  <!-- Left angle bracket < -->
+  <path d="M60 30 L20 60 L60 90" stroke="#38BDF8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- Slash / -->
+  <path d="M95 25 L125 95" stroke="#38BDF8" stroke-width="14" stroke-linecap="round"></path>
+
+  <!-- Right angle bracket > -->
+  <path d="M140 30 L180 60 L140 90" stroke="#38BDF8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- Accent dot (progress / identity) -->
+  </svg>
