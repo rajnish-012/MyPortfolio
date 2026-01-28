@@ -3,7 +3,7 @@
 A personal portfolio built with **React** and **Vite** showcasing projects, skills, and contact information.  
 
 ## 🔗 Live Demo
-[View Live Portfolio](https://my-portfolio-sw74.vercel.app//)
+[View Live Portfolio](https://my-portfolio-rajnish.vercel.app/)
 
 ## 🛠 Technologies
 React | Vite | JavaScript | HTML | CSS
