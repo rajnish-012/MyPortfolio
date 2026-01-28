@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import Resume from "../assets/Resume.pdf";
+import Resume from "../assets/Rajnish kumar Resume.pdf";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -87,10 +87,10 @@ const Contact = () => {
               <div>
                 <p className="text-xs text-slate-400">Email</p>
                 <a
-                  href="mailto:companyk47@gmail.com"
+                  href="mailto:rajnishkr.22.11.48@gmail.com"
                   className="text-sky-400 hover:underline"
                 >
-                  companyk47@gmail.com
+                  rajnishkr.22.11.48@gmail.com
                 </a>
               </div>
             </div>
