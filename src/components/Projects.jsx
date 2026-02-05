@@ -12,6 +12,22 @@ const featuredProjects = [
     github: "https://github.com/Tanujkumarsingh/EassyAppoint",
     live: "#",
   },
+  {
+    title: "FaithConnect",
+    description:
+      "A mobile-first, role-based application connecting users with community leaders, featuring onboarding, content feeds, and real-time one-to-one messaging.",
+    tech: ["React Native", "TypeScript", "Firebase", "Firestore"],
+    github: "https://github.com/rajnish-012/faithconnect",
+    live: null,
+  },
+  {
+    title: "ResumeIQ",
+    description:
+      "An AI-powered resume analyzer that compares resumes against job descriptions and generates ATS compatibility scores with actionable feedback through a multi-step React interface.",
+    tech: ["React.js", "React Router", "JavaScript", "Puter.js"],
+    github: "https://github.com/rajnish-012/ai-resume-parser",
+    live: null,
+  },
 
   {
     title: "Soil Farming Agent",
@@ -30,13 +46,28 @@ const featuredProjects = [
     live: "https://easy-cook-lyart.vercel.app/",
   },
   {
-    title: "Delivery Management System",
+    title: "Scientific Calculator",
     description:
-      "A backend-focused delivery tracking system built with Go, supporting scalable order handling and real-time status updates.",
-    tech: ["Go", "PostgreSQL", "Docker", "Redis"],
-    github: "https://github.com/rajnish-012/delivery-management-system",
-    live: "https://delivery-management-system-weld.vercel.app/",
+      "A fully functional web-based scientific calculator that performs basic and advanced arithmetic operations with a user-friendly interface.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/rajnish-012/Scientific-Calculator",
+    live: null,
   },
+
+  // {
+  //   title: "Delivery Management System",
+  //   description:
+  //     "A backend-focused delivery tracking system built with Go, supporting scalable order handling and real-time status updates.",
+  //   tech: ["Go", "PostgreSQL", "Docker", "Redis"],
+  //   github: "https://github.com/rajnish-012/delivery-management-system",
+  //   live: "https://delivery-management-system-weld.vercel.app/",
+  // },
+];
+
+/* =======================
+   OTHER PROJECTS
+======================= */
+const otherProjects = [
   {
     title: "My Portfolio (React)",
     description:
@@ -53,12 +84,6 @@ const featuredProjects = [
     github: "https://github.com/rajnish-012/Tic-Tac-Toe",
     live: "https://tic-tac-toe-icve.vercel.app/",
   },
-];
-
-/* =======================
-   OTHER PROJECTS
-======================= */
-const otherProjects = [
   {
     title: "My-Portfolio",
     description: "Another portfolio website version (HTML based).",
@@ -92,30 +117,30 @@ const otherProjects = [
     github: "https://github.com/rajnish-012/rock-paper-scissor",
     live: "https://rock-paper-scissor-kmuk.vercel.app/",
   },
-  {
-    title: "Frontend Assignment",
-    description:
-      "A modern frontend assignment built using React, TypeScript, and Tailwind CSS with component-driven development principles.",
-    tech: ["React", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/rajnish-012/frontend-assignment",
-    live: "#",
-  },
-  {
-    title: "SimpleLang Compiler",
-    description:
-      "A basic compiler implementation demonstrating lexical analysis and parsing concepts.",
-    tech: ["Python", "Compiler Design"],
-    github: "https://github.com/rajnish-012/simplelang-compiler",
-    live: "#",
-  },
-  {
-    title: "CryptoBot",
-    description:
-      "An automated cryptocurrency trading bot using Python to analyze trends and execute trades.",
-    tech: ["Python"],
-    github: "https://github.com/rajnish-012/CryptoBot",
-    live: "#",
-  },
+  // {
+  //   title: "Frontend Assignment",
+  //   description:
+  //     "A modern frontend assignment built using React, TypeScript, and Tailwind CSS with component-driven development principles.",
+  //   tech: ["React", "TypeScript", "Tailwind CSS"],
+  //   github: "https://github.com/rajnish-012/frontend-assignment",
+  //   live: "#",
+  // },
+  // {
+  //   title: "SimpleLang Compiler",
+  //   description:
+  //     "A basic compiler implementation demonstrating lexical analysis and parsing concepts.",
+  //   tech: ["Python", "Compiler Design"],
+  //   github: "https://github.com/rajnish-012/simplelang-compiler",
+  //   live: "#",
+  // },
+  // {
+  //   title: "CryptoBot",
+  //   description:
+  //     "An automated cryptocurrency trading bot using Python to analyze trends and execute trades.",
+  //   tech: ["Python"],
+  //   github: "https://github.com/rajnish-012/CryptoBot",
+  //   live: "#",
+  // },
 ];
 
 const ProjectGrid = ({ projects }) => (
