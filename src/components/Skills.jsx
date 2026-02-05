@@ -4,32 +4,34 @@ const Skills = () => {
   const skillGroups = [
     {
       title: "Programming Languages",
-      skills: ["C", "C++", "Python", "Go"],
+      skills: ["C", "C++", "JavaScript (ES6+)", "TypeScript", "Python"],
     },
     {
       title: "Frontend Development",
       skills: [
-        "HTML",
-        "CSS",
+        "HTML5",
+        "CSS3",
         "JavaScript",
         "React.js",
         "Next.js",
-        "Responsive UI",
+        "React Router",
+        "Responsive UI Design",
+        "Component-Based Architecture",
       ],
     },
     {
-      title: "Backend Development",
+      title: "Backend Development (Supporting)",
       skills: [
-        "Node.js",
-        "Express.js",
-        "RESTful APIs",
-        "JWT",
+        "Node.js (Basics)",
+        "Express.js (Basics)",
+        "REST APIs",
         "Authentication & Authorization",
+        "Firebase Authentication",
       ],
     },
     {
-      title: "Databases",
-      skills: ["MySQL", "MongoDB", "Firebase"],
+      title: "Databases & Backend Services",
+      skills: ["MySQL", "MongoDB", "Firebase Firestore"],
     },
     {
       title: "Dev Tools & Platforms",
@@ -39,16 +41,36 @@ const Skills = () => {
         "VS Code",
         "Postman",
         "Docker (Basics)",
-        "CI/CD",
+        "CI/CD (Basics)",
+        "API Integration",
+      ],
+    },
+    {
+      title: "Software Engineering Practices",
+      skills: [
+        "Problem Solving",
+        "Debugging",
+        "Clean Code Principles",
+        "Code Reviews",
+        "Performance Optimization",
       ],
     },
     {
       title: "CS Fundamentals",
-      skills: ["DSA", "OOPS", "DBMS", "Computer Networks"],
+      skills: [
+        "Data Structures & Algorithms",
+        "Object-Oriented Programming",
+        "DBMS",
+        "Computer Networks",
+      ],
     },
     {
       title: "Methodologies",
-      skills: ["SDLC", "Agile Basics", "Team Collaboration"],
+      skills: [
+        "Software Development Life Cycle (SDLC)",
+        "Agile Development (Basics)",
+        "Cross-Functional Collaboration",
+      ],
     },
   ];
 
@@ -67,9 +89,9 @@ const Skills = () => {
             Skills & Expertise
           </h2>
           <p className="text-slate-400 max-w-3xl leading-relaxed">
-            A structured overview of my technical skill set, covering programming
-            languages, web development, tools, and core computer science
-            fundamentals used in real-world software development.
+            A structured overview of my technical skill set, covering
+            programming languages, web development, tools, and core computer
+            science fundamentals used in real-world software development.
           </p>
         </motion.div>
 

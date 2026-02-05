@@ -17,7 +17,7 @@ const About = () => {
             About <span className="text-sky-400">Me</span>
           </h2>
           <p className="text-slate-400 max-w-2xl">
-            A brief overview of my background, experience, and journey as a software engineer.
+            A brief overview of my background, experience, and journey as a frontend-focused software engineer.
           </p>
         </motion.div>
 
@@ -43,21 +43,25 @@ const About = () => {
               <span className="text-sky-400 font-medium">
                 IIIT Tiruchirappalli
               </span>{" "}
-              and an aspiring{" "}
-              <span className="font-medium">Full Stack Software Engineer</span>.
+              with a strong focus on{" "}
+              <span className="font-medium">
+                Frontend Development and Software Engineering
+              </span>.
             </p>
 
-            {/* FULL STACK IDENTITY */}
+            {/* FRONTEND IDENTITY */}
             <p>
-              I specialize in developing modern, scalable, and responsive web
-              applications by working across both frontend and backend layers.
-              I enjoy translating ideas into real-world products using clean UI
-              design, well-structured APIs, and efficient databases.
+              I specialize in building clean, responsive, and performance-oriented
+              user interfaces using modern frontend technologies like{" "}
+              <span className="font-medium">React.js, Next.js</span>, and
+              component-based architectures. I enjoy translating product
+              requirements into scalable UI solutions with attention to
+              usability, accessibility, and performance.
             </p>
 
             {/* INTERNSHIP */}
             <p>
-              I previously completed a{" "}
+              I completed a{" "}
               <span className="text-sky-400 font-medium">
                 Full Stack Web Development Internship
               </span>{" "}
@@ -66,34 +70,34 @@ const About = () => {
                 Unified Mentor Pvt. Ltd.
               </span>{" "}
               <span className="text-slate-400">
-                (Aug 2025 – Oct 2025)
+                (Aug 2025 – Nov 2025)
               </span>
-              , where I worked on building and deploying responsive web
-              applications, integrating RESTful APIs, and enhancing performance
-              and usability in production-level projects.
+              , where I worked on frontend-heavy applications involving
+              role-based dashboards, authentication flows, and real-time data
+              integration using JavaScript and Firebase.
             </p>
 
             {/* CAREER FOCUS */}
             <p>
-              With a strong foundation in computer science fundamentals, I focus
-              on writing maintainable, efficient, and scalable code. I am
-              actively seeking{" "}
+              With a solid foundation in computer science fundamentals and hands-on
+              project experience, I focus on writing maintainable, efficient, and
+              scalable code. I am actively seeking{" "}
               <span className="font-medium">
-                full-time software engineering opportunities
+                entry-level Software Engineer or Frontend Developer roles
               </span>{" "}
-              where I can contribute to impactful products while continuing to
-              grow as a developer.
+              where I can contribute to building user-centric products and grow
+              as an engineer.
             </p>
 
             {/* HIGHLIGHTS */}
             <div className="flex flex-wrap gap-3 pt-5">
               {[
-                "Full Stack Development",
+                "Frontend Development",
                 "Software Engineering",
-                "REST APIs",
-                "Scalable Systems",
+                "React & UI Engineering",
+                "REST API Integration",
                 "Problem Solving",
-                "Clean Code Practices",
+                "Performance Optimization",
               ].map((item) => (
                 <span
                   key={item}
