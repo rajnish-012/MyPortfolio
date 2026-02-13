@@ -18,7 +18,7 @@ const featuredProjects = [
       "A mobile-first, role-based application connecting users with community leaders, featuring onboarding, content feeds, and real-time one-to-one messaging.",
     tech: ["React Native", "TypeScript", "Firebase", "Firestore"],
     github: "https://github.com/rajnish-012/faithconnect",
-    live: null,
+    live: "https://expo.dev/accounts/rajnish_kr/projects/faithconnect/builds/8350720f-cb20-445a-875c-c8e2b2371346",
   },
   {
     title: "ResumeIQ",
@@ -26,7 +26,7 @@ const featuredProjects = [
       "An AI-powered resume analyzer that compares resumes against job descriptions and generates ATS compatibility scores with actionable feedback through a multi-step React interface.",
     tech: ["React.js", "React Router", "JavaScript", "Puter.js"],
     github: "https://github.com/rajnish-012/ai-resume-parser",
-    live: null,
+    live: "https://ai-parseresume.vercel.app/",
   },
 
   {
