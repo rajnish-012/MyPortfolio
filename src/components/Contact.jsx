@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import Resume from "../assets/Rajnish Resume.pdf";
+import Resume from "../assets/Rajnish kumar resume april.pdf";
 
 const Contact = () => {
   const formRef = useRef(null);
