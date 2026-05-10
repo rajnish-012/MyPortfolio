@@ -1,128 +1,49 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
+import SectionHeader from "./SectionHeader";
+import { skillGroups } from "../data/skills";
 
 const Skills = () => {
-  const skillGroups = [
-    {
-      title: "Programming Languages",
-      skills: ["C", "C++", "JavaScript (ES6+)", "TypeScript", "Python"],
-    },
-    {
-      title: "Frontend Development",
-      skills: [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "React.js",
-        "Next.js",
-        "React Router",
-        "Responsive UI Design",
-        "Component-Based Architecture",
-      ],
-    },
-    {
-      title: "Backend Development (Supporting)",
-      skills: [
-        "Node.js (Basics)",
-        "Express.js (Basics)",
-        "REST APIs",
-        "Authentication & Authorization",
-        "Firebase Authentication",
-      ],
-    },
-    {
-      title: "Databases & Backend Services",
-      skills: ["MySQL", "MongoDB", "Firebase Firestore"],
-    },
-    {
-      title: "Dev Tools & Platforms",
-      skills: [
-        "Git",
-        "GitHub",
-        "VS Code",
-        "Postman",
-        "Docker (Basics)",
-        "CI/CD (Basics)",
-        "API Integration",
-      ],
-    },
-    {
-      title: "Software Engineering Practices",
-      skills: [
-        "Problem Solving",
-        "Debugging",
-        "Clean Code Principles",
-        "Code Reviews",
-        "Performance Optimization",
-      ],
-    },
-    {
-      title: "CS Fundamentals",
-      skills: [
-        "Data Structures & Algorithms",
-        "Object-Oriented Programming",
-        "DBMS",
-        "Computer Networks",
-      ],
-    },
-    {
-      title: "Methodologies",
-      skills: [
-        "Software Development Life Cycle (SDLC)",
-        "Agile Development (Basics)",
-        "Cross-Functional Collaboration",
-      ],
-    },
-  ];
-
   return (
-    <section id="skills" className="py-28 px-6 bg-slate-900/40">
-      <div className="max-w-6xl mx-auto">
-        {/* Heading */}
-        <motion.div
+    <section id="skills" className="bg-slate-950 px-6 py-24">
+      <div className="mx-auto max-w-6xl">
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Skills & Expertise
-          </h2>
-          <p className="text-slate-400 max-w-3xl leading-relaxed">
-            A structured overview of my technical skill set, covering
-            programming languages, web development, tools, and core computer
-            science fundamentals used in real-world software development.
-          </p>
-        </motion.div>
+          <SectionHeader
+            eyebrow="Skills"
+            title="Engineering"
+            accent="Toolkit"
+            description="A focused view of the languages, frameworks, tools, and CS fundamentals I use to build, debug, ship, and maintain modern applications."
+          />
+        </Motion.div>
 
-        {/* Skill Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {skillGroups.map((group, index) => (
-            <motion.div
-              key={index}
+            <Motion.div
+              key={group.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.06 }}
+              whileHover={{ y: -6 }}
               viewport={{ once: true }}
-              className="bg-slate-950 border border-slate-800 rounded-2xl p-7
-                         hover:border-sky-400 transition-shadow hover:shadow-lg"
+              className="rounded-lg border border-slate-800 bg-slate-900/70 p-6 shadow-lg shadow-slate-950/10 transition hover:border-sky-400/70 hover:shadow-sky-950/20"
             >
-              <h3 className="text-lg font-semibold mb-5 text-sky-400">
+              <h3 className="mb-5 text-lg font-semibold text-sky-400">
                 {group.title}
               </h3>
 
-              <ul className="space-y-3 text-slate-300 text-sm">
+              <ul className="space-y-3 text-sm text-slate-300">
                 {group.skills.map((skill) => (
-                  <li
-                    key={skill}
-                    className="flex items-start gap-2 leading-relaxed"
-                  >
-                    <span className="text-sky-400 mt-1">▹</span>
+                  <li key={skill} className="flex items-start gap-2 leading-relaxed">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-sky-400" />
                     <span>{skill}</span>
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
       </div>

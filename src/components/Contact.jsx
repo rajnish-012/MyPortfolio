@@ -1,22 +1,29 @@
-import { useState, useRef } from "react";
-import { motion } from "framer-motion";
-import Resume from "../assets/Rajnish kumar resume april.pdf";
+import { useRef, useState } from "react";
+import { motion as Motion } from "framer-motion";
+import Resume from "../assets/Kumar_Rajnish_Resume_06-05-2026.pdf";
+import SectionHeader from "./SectionHeader";
+import { profile } from "../data/profile";
+
+const contactLinks = [
+  { label: "GitHub", href: profile.github },
+  { label: "LinkedIn", href: profile.linkedin },
+  { label: "Resume", href: Resume },
+];
 
 const Contact = () => {
   const formRef = useRef(null);
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     if (loading) return;
 
     const form = formRef.current;
     const phone = form.phone.value.trim();
     const email = form.email.value.trim();
 
-    // Validation
-    if (!/^\d{10}$/.test(phone)) {
+    if (phone && !/^\d{10}$/.test(phone)) {
       setStatus("Phone number must be exactly 10 digits.");
       return;
     }
@@ -29,12 +36,10 @@ const Contact = () => {
     setLoading(true);
     setStatus("");
 
-    const formData = new FormData(form);
-
     try {
       const response = await fetch("https://formspree.io/f/meeqwybp", {
         method: "POST",
-        body: formData,
+        body: new FormData(form),
         headers: { Accept: "application/json" },
       });
 
@@ -43,13 +48,11 @@ const Contact = () => {
       if (response.ok) {
         setStatus("success");
         form.reset();
-
-        // Auto-hide success message
         setTimeout(() => setStatus(""), 4000);
       } else {
         setStatus(
           result?.errors
-            ? result.errors.map((e) => e.message).join(", ")
+            ? result.errors.map((error) => error.message).join(", ")
             : "Something went wrong. Please try again."
         );
       }
@@ -61,150 +64,150 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-slate-900/40">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
-
-        {/* LEFT CONTENT */}
-        <motion.div
+    <section id="contact" className="bg-slate-950 px-6 py-24">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 md:grid-cols-2">
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="space-y-6"
         >
-          <h2 className="text-4xl font-bold">
-            Contact <span className="text-sky-400">Me</span>
-          </h2>
+          <SectionHeader
+            eyebrow="Contact"
+            title="Let Us"
+            accent="Connect"
+            description="Open to entry-level SDE roles, software engineering internships, frontend-heavy product work, and teams building reliable user-facing applications."
+          />
 
-          <p className="text-slate-400 max-w-md">
-            Open to internships, full-time roles, and exciting frontend projects.
-            Let’s build something impactful together.
-          </p>
-
-          {/* Info Cards */}
           <div className="grid gap-4">
-            <div className="flex items-center gap-4 bg-slate-900/60 border border-slate-800 rounded-lg p-4 hover:border-sky-400/60 transition">
-              <span className="text-lg">📧</span>
-              <div>
-                <p className="text-xs text-slate-400">Email</p>
-                <a
-                  href="mailto:rajnishkr.22.11.48@gmail.com"
-                  className="text-sky-400 hover:underline"
-                >
-                  rajnishkr.22.11.48@gmail.com
-                </a>
-              </div>
+            <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
+                Email
+              </p>
+              <a
+                href={`mailto:${profile.email}`}
+                className="mt-1 inline-block break-all text-sky-400 hover:underline"
+              >
+                {profile.email}
+              </a>
             </div>
 
-            <div className="flex items-center gap-4 bg-slate-900/60 border border-slate-800 rounded-lg p-4 hover:border-sky-400/60 transition">
-              <span className="text-lg">📍</span>
-              <div>
-                <p className="text-xs text-slate-400">Location</p>
-                <p className="text-slate-300">India</p>
-              </div>
+            <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
+                Location
+              </p>
+              <p className="mt-1 text-slate-300">{profile.location}</p>
+            </div>
+
+            <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
+                Phone
+              </p>
+              <a
+                href={`tel:${profile.phone.replace(/[^+\d]/g, "")}`}
+                className="mt-1 inline-block text-slate-300 hover:text-sky-300"
+              >
+                {profile.phone}
+              </a>
             </div>
           </div>
 
-          {/* Social Links */}
-          <div className="flex gap-4 pt-2">
-            <a
-              href="https://github.com/rajnish-012"
-              target="_blank"
-              className="px-4 py-2 rounded-lg border border-slate-700 text-slate-300 hover:text-sky-400 hover:border-sky-400 transition"
-            >
-              GitHub
-            </a>
-
-            <a
-              href="https://linkedin.com/in/rajnish-kumar-1a2b93348"
-              target="_blank"
-              className="px-4 py-2 rounded-lg border border-slate-700 text-slate-300 hover:text-sky-400 hover:border-sky-400 transition"
-            >
-              LinkedIn
-            </a>
-
-            <a
-              href={Resume}
-              target="_blank"
-              className="px-4 py-2 rounded-lg bg-sky-400 text-slate-900 font-medium hover:bg-sky-300 transition"
-            >
-              Resume
-            </a>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {contactLinks.map((link) => (
+              <Motion.a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -3 }}
+                className="rounded-lg border border-slate-700 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-sky-400 hover:text-sky-300"
+              >
+                {link.label}
+              </Motion.a>
+            ))}
           </div>
-        </motion.div>
+        </Motion.div>
 
-        {/* FORM */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-slate-900/60 border border-slate-800 rounded-xl p-7"
+          className="rounded-lg border border-slate-800 bg-slate-900/60 p-6"
         >
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-4"
-          >
-            {/* Honeypot */}
-            <input type="text" name="_gotcha" className="hidden" />
+          <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <input type="text" name="_gotcha" className="hidden" tabIndex="-1" />
 
+            <label className="text-sm font-medium text-slate-300" htmlFor="name">
+              Name
+            </label>
             <input
-              aria-label="Your full name"
+              id="name"
               type="text"
               name="name"
-              placeholder="Your Name"
+              placeholder="Your name"
               required
-              className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-200 focus:border-sky-400 focus:outline-none"
+              className="rounded-lg border border-slate-700 bg-slate-800 px-4 py-2.5 text-slate-200 outline-none transition focus:border-sky-400"
             />
 
+            <label className="text-sm font-medium text-slate-300" htmlFor="email">
+              Email
+            </label>
             <input
-              aria-label="Your email address"
+              id="email"
               type="email"
               name="email"
-              placeholder="Your Email"
+              placeholder="you@example.com"
               required
-              className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-200 focus:border-sky-400 focus:outline-none"
+              className="rounded-lg border border-slate-700 bg-slate-800 px-4 py-2.5 text-slate-200 outline-none transition focus:border-sky-400"
             />
 
+            <label className="text-sm font-medium text-slate-300" htmlFor="phone">
+              Phone <span className="text-slate-500">(optional)</span>
+            </label>
             <input
-              aria-label="Your phone number"
+              id="phone"
               type="tel"
               name="phone"
-              placeholder="Your Phone (10 digits)"
-              required
+              placeholder="10 digit phone number"
               maxLength="10"
-              className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-200 focus:border-sky-400 focus:outline-none"
+              inputMode="numeric"
+              className="rounded-lg border border-slate-700 bg-slate-800 px-4 py-2.5 text-slate-200 outline-none transition focus:border-sky-400"
             />
 
+            <label className="text-sm font-medium text-slate-300" htmlFor="message">
+              Message
+            </label>
             <textarea
-              aria-label="Your message"
+              id="message"
               name="message"
-              rows="4"
-              placeholder="Your Message"
+              rows="5"
+              placeholder="Tell me about the role, project, or opportunity."
               required
-              className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-200 focus:border-sky-400 focus:outline-none resize-none"
+              className="resize-none rounded-lg border border-slate-700 bg-slate-800 px-4 py-2.5 text-slate-200 outline-none transition focus:border-sky-400"
             />
 
             <button
               type="submit"
               disabled={loading}
-              className={`bg-sky-400 text-slate-900 py-2.5 rounded-lg font-semibold transition ${
-                loading ? "opacity-60 cursor-not-allowed" : "hover:bg-sky-300"
+              className={`mt-2 rounded-lg bg-sky-400 py-2.5 font-semibold text-slate-950 transition ${
+                loading ? "cursor-not-allowed opacity-60" : "hover:bg-sky-300"
               }`}
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
 
             {status === "success" && (
-              <p className="text-green-400 text-sm">
-                ✅ Message sent successfully!
+              <p className="text-sm text-green-400" role="status">
+                Message sent successfully.
               </p>
             )}
 
             {status && status !== "success" && (
-              <p className="text-red-400 text-sm">❌ {status}</p>
+              <p className="text-sm text-red-400" role="alert">
+                {status}
+              </p>
             )}
           </form>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

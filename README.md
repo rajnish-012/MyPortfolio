@@ -1,39 +1,55 @@
-# My Portfolio
+# Rajnish Kumar Portfolio
 
-A personal portfolio built with **React** and **Vite** showcasing projects, skills, and contact information.  
+A professional SDE portfolio built with React, Vite, Tailwind CSS, and Framer
+Motion. It presents my software engineering foundation, frontend engineering
+strength, selected projects, experience, education, skills, resume, and contact
+options.
 
-## 🔗 Live Demo
-[View Live Portfolio](https://my-portfolio-rajnish.vercel.app/)
+## Live Demo
 
-## 🛠 Technologies
-React | Vite | JavaScript | HTML | CSS
+[View Portfolio](https://my-portfolio-rajnish.vercel.app/)
 
-## 🚀 Features
-- Responsive modern design  
-- Interactive Hero & Projects sections  
-- Easy to extend with new content  
-- Deployed on Vercel
+## Tech Stack
 
-## 📁 Structure
-MyPortfolio/
-├─ public/
-├─ src/
-│ ├─ assets/
-│ ├─ components/
-│ ├─ App.jsx
-│ ├─ main.jsx
-├─ index.html
-├─ package.json
-├─ vite.config.js
-└─ README.md
+- React
+- Vite
+- Tailwind CSS
+- Framer Motion
+- JavaScript
+- Formspree
 
+## Features
 
-## ⚡ Installation
+- Responsive single-page portfolio
+- Strong hero positioning and resume CTA
+- Dedicated about, experience, education, skills, projects, and contact sections
+- Curated project cards with impact points and live/GitHub links
+- Accessible form labels and mobile navigation states
+- SEO, Open Graph, and Twitter preview metadata
+
+## Getting Started
+
 ```bash
-  git clone https://github.com/rajnish-012/MyPortfolio.git
-  cd MyPortfolio
-  npm install
-  npm run dev
+git clone https://github.com/rajnish-012/MyPortfolio.git
+cd MyPortfolio
+npm install
+npm run dev
+```
 
-If you want, I can also make a **more visually appealing version with badges, icons, and screenshots** but still in one frame. Do you want me to do that?
+## Production Build
 
+```bash
+npm run build
+npm run preview
+```
+
+## Project Structure
+
+```text
+src/
+  assets/
+  components/
+  data/
+  App.jsx
+  main.jsx
+```
