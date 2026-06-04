@@ -1,6 +1,6 @@
 import { motion as Motion, useReducedMotion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import profileImage from "../assets/Profile.jpeg";
+import profileImage from "../assets/profile2.png";
 import Resume from "../assets/Kumar_Rajnish_Resume_06-05-2026.pdf";
 import {
   heroStats,
@@ -28,11 +28,11 @@ const fadeUp = (reduce, delay = 0) => ({
 });
 
 const imageVariant = (reduce) => ({
-  hidden: reduce ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.88, rotate: -3 },
+  hidden: reduce ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92, y: 30 },
   show: {
     opacity: 1,
     scale: 1,
-    rotate: 0,
+    y: 0,
     transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
   },
 });
@@ -259,118 +259,143 @@ const GlitchBadge = ({ children, reduce }) => (
   </Motion.p>
 );
 
-/* ─── Image with tilt ───────────────────────────────── */
+/* ─── Profile Image (editorial full-bleed style) ───── */
 
-const TiltImage = ({ reduce }) => {
-  const ref = useRef(null);
-  const rotX = useMotionValue(0);
-  const rotY = useMotionValue(0);
-  const springRotX = useSpring(rotX, { stiffness: 200, damping: 25 });
-  const springRotY = useSpring(rotY, { stiffness: 200, damping: 25 });
-
-  const handleMouse = (e) => {
-    if (reduce) return;
-    const rect = ref.current.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    rotX.set(((e.clientY - cy) / rect.height) * -12);
-    rotY.set(((e.clientX - cx) / rect.width) * 12);
-  };
-
-  const reset = () => { rotX.set(0); rotY.set(0); };
-
+const ProfileImage = ({ reduce }) => {
   return (
     <Motion.div
       variants={imageVariant(reduce)}
-      className="flex justify-center md:justify-end"
+      className="relative flex justify-center md:justify-end"
     >
-      <div
-        ref={ref}
-        className="group relative"
-        onMouseMove={handleMouse}
-        onMouseLeave={reset}
-        style={{ perspective: 800 }}
-      >
-        {/* Glow halo */}
+      {/* Ambient glow behind image */}
+      <Motion.div
+        aria-hidden="true"
+        className="absolute inset-0 rounded-2xl"
+        animate={
+          reduce
+            ? {}
+            : {
+                background: [
+                  "radial-gradient(ellipse at 60% 40%, rgba(56,189,248,0.18) 0%, transparent 70%)",
+                  "radial-gradient(ellipse at 60% 40%, rgba(99,102,241,0.18) 0%, transparent 70%)",
+                  "radial-gradient(ellipse at 60% 40%, rgba(56,189,248,0.18) 0%, transparent 70%)",
+                ],
+              }
+        }
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        style={{ filter: "blur(40px)" }}
+      />
+
+      <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg">
+
+        {/* Main image card */}
         <Motion.div
-          className="absolute inset-0 rounded-full"
-          animate={
-            reduce
-              ? {}
-              : {
-                  background: [
-                    "radial-gradient(circle, rgba(56,189,248,0.35) 0%, transparent 70%)",
-                    "radial-gradient(circle, rgba(99,102,241,0.35) 0%, transparent 70%)",
-                    "radial-gradient(circle, rgba(56,189,248,0.35) 0%, transparent 70%)",
-                  ],
-                }
-          }
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          style={{ filter: "blur(28px)" }}
-          aria-hidden="true"
-        />
-
-        {/* Orbit ring */}
-        {!reduce && (
-          <Motion.div
-            className="absolute inset-[-12px] rounded-full border border-sky-400/20"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-            aria-hidden="true"
-          >
-            <Motion.div
-              className="absolute top-0 left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-400"
-              animate={{ boxShadow: ["0 0 4px rgba(56,189,248,0.8)", "0 0 14px rgba(56,189,248,1)", "0 0 4px rgba(56,189,248,0.8)"] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </Motion.div>
-        )}
-
-        {/* Second orbit ring counter-rotating */}
-        {!reduce && (
-          <Motion.div
-            className="absolute inset-[-24px] rounded-full border border-indigo-400/10"
-            animate={{ rotate: -360 }}
-            transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-            aria-hidden="true"
-          >
-            <Motion.div className="absolute bottom-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 translate-y-1/2 rounded-full bg-indigo-400/60" />
-          </Motion.div>
-        )}
-
-        <Motion.div
-          animate={reduce ? undefined : { y: [0, -10, 0] }}
-          transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-          style={{ rotateX: springRotX, rotateY: springRotY }}
-          className="relative rounded-full bg-gradient-to-br from-sky-400/40 to-indigo-400/20 p-1 shadow-2xl"
+          className="relative overflow-hidden rounded-2xl border border-slate-700/40 shadow-2xl shadow-slate-950/60"
+          style={{ aspectRatio: "3/4" }}
+          whileHover={reduce ? {} : { scale: 1.012 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="rounded-full border border-slate-800 bg-slate-900/40 p-1 backdrop-blur-sm">
-            <Motion.img
-              src={profileImage}
-              alt="Portrait of Rajnish Kumar"
-              loading="eager"
-              className="h-52 w-52 rounded-full object-cover sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72"
-              style={{ objectPosition: "center 5%" }}
-              whileHover={reduce ? {} : { scale: 1.06, rotate: 1.5 }}
-              transition={{ duration: 0.6 }}
-            />
-          </div>
-        </Motion.div>
+          {/* Subtle dark vignette at bottom for overlays */}
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-slate-950/85 via-slate-950/10 to-transparent" />
 
-        {/* Badge */}
-        <Motion.div
-          className="absolute -bottom-6 left-1/2 hidden -translate-x-1/2 items-center gap-2 rounded-full bg-slate-800/60 px-3 py-1 text-xs text-slate-200/80 backdrop-blur-sm sm:flex"
-          initial={reduce ? {} : { opacity: 0, y: 12, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.6, delay: 1.1 }}
-        >
-          <Motion.span
-            className="h-2 w-2 rounded-full bg-sky-400"
-            animate={reduce ? {} : { scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
+          {/* Subtle top-left corner accent */}
+          <div className="absolute left-0 top-0 z-10 h-24 w-24 bg-gradient-to-br from-sky-500/10 to-transparent" />
+
+          {/* Profile photo */}
+          <Motion.img
+            src={profileImage}
+            alt="Portrait of Rajnish Kumar"
+            loading="eager"
+            className="h-full w-full object-cover object-top"
+            animate={reduce ? {} : { scale: [1, 1.04, 1] }}
+            transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
           />
-          {profileData.shortSchool} / Final-year
+
+          {/* Top-left role badge */}
+          <Motion.div
+            className="absolute left-4 top-4 z-20"
+            initial={reduce ? {} : { opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-slate-900/70 px-3 py-1.5 backdrop-blur-md">
+              <Motion.span
+                className="h-2 w-2 rounded-full bg-sky-400"
+                animate={reduce ? {} : { scale: [1, 1.6, 1], opacity: [1, 0.4, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              <span className="text-xs font-semibold text-sky-300">Open to work</span>
+            </div>
+          </Motion.div>
+
+          {/* Bottom info overlay */}
+          <Motion.div
+            className="absolute bottom-0 left-0 right-0 z-20 p-5"
+            initial={reduce ? {} : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1.2 }}
+          >
+            {/* Name & college card */}
+            <div className="rounded-xl border border-slate-700/50 bg-slate-900/75 p-4 backdrop-blur-md">
+              <div className="flex items-end justify-between">
+                <div>
+                  <p className="text-lg font-bold leading-tight text-white">
+                    Rajnish Kumar
+                  </p>
+                  <p className="mt-0.5 text-xs font-medium text-slate-400">
+                    {profileData.shortSchool} · Final-year B.Tech CSE
+                  </p>
+                </div>
+                {/* MERN stack dot grid decoration */}
+                <div className="grid grid-cols-2 gap-1 opacity-60">
+                  {[ "M","E","R", "N"].map((l) => (
+                    <span
+                      key={l}
+                      className="flex h-5 w-5 items-center justify-center rounded bg-slate-800 text-[9px] font-bold text-sky-400"
+                    >
+                      {l}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Motion.div>
         </Motion.div>
+
+        {/* Floating tech stack chips on the right edge */}
+        {!reduce && (
+          <Motion.div
+            className="absolute -right-3 top-10 flex flex-col gap-2"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 1.4 }}
+          >
+            {["React", "Node.js", "Firebase", "MongoDB"].map((tech, i) => (
+              <Motion.span
+                key={tech}
+                className="rounded-full border border-slate-700/80 bg-slate-900/90 px-3 py-1 text-xs font-medium text-sky-300 shadow-lg backdrop-blur-sm"
+                initial={{ opacity: 0, x: 16 }}
+                animate={{ opacity: 1, x: 0 }}
+                whileHover={{ x: -4, borderColor: "rgba(125,211,252,0.5)" }}
+                transition={{ delay: 1.5 + i * 0.1, duration: 0.4 }}
+              >
+                {tech}
+              </Motion.span>
+            ))}
+          </Motion.div>
+        )}
+
+        {/* Decorative corner line accent */}
+        {!reduce && (
+          <Motion.div
+            className="absolute -bottom-3 -left-3 h-16 w-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.6 }}
+          >
+            <div className="h-full w-full border-b-2 border-l-2 border-sky-400/30 rounded-bl-xl" />
+          </Motion.div>
+        )}
       </div>
     </Motion.div>
   );
@@ -433,7 +458,7 @@ const Hero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="relative mx-auto grid min-h-[calc(100svh-8.5rem)] max-w-6xl grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-10"
+        className="relative mx-auto grid min-h-[calc(100svh-8.5rem)] max-w-6xl grid-cols-1 items-center gap-8 md:grid-cols-[1fr_420px] md:gap-12 lg:grid-cols-[1fr_460px]"
       >
         {/* ── Left column ── */}
         <div>
@@ -563,8 +588,8 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* ── Right column: tilt image ── */}
-        <TiltImage reduce={reduceMotion} />
+        {/* ── Right column: editorial profile image ── */}
+        <ProfileImage reduce={reduceMotion} />
       </Motion.div>
     </section>
   );
