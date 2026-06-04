@@ -1,6 +1,6 @@
 import { motion as Motion, useReducedMotion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import profileImage from "../assets/profile2.png";
+import profileImage from "../assets/Profile.png";
 import Resume from "../assets/Kumar_Rajnish_Resume_06-05-2026.pdf";
 import {
   heroStats,
