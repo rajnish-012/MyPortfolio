@@ -350,6 +350,7 @@ const TiltImage = ({ reduce }) => {
               alt="Portrait of Rajnish Kumar"
               loading="eager"
               className="h-52 w-52 rounded-full object-cover sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72"
+              style={{ objectPosition: "center 5%" }}
               whileHover={reduce ? {} : { scale: 1.06, rotate: 1.5 }}
               transition={{ duration: 0.6 }}
             />
