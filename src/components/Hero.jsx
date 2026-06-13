@@ -80,7 +80,8 @@ const words = [
 
 const WordReveal = ({ reduce }) => (
   <Motion.h1
-    className="mb-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl"
+    /* FIX 1: reduced lg size from text-6xl → text-5xl so buttons stay visible */
+    className="mb-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-4xl lg:text-5xl"
     variants={containerVariants}
     initial="hidden"
     animate="show"
@@ -259,144 +260,119 @@ const GlitchBadge = ({ children, reduce }) => (
   </Motion.p>
 );
 
-/* ─── Profile Image (editorial full-bleed style) ───── */
+/* ─── Profile Image ─────────────────────────────────── */
 
 const ProfileImage = ({ reduce }) => {
   return (
     <Motion.div
       variants={imageVariant(reduce)}
-      className="relative flex justify-center md:justify-end"
+      className="relative flex items-end justify-center md:justify-end"
     >
-      {/* Ambient glow behind image */}
+      {/* ── Dramatic spotlight glow behind the figure ── */}
       <Motion.div
         aria-hidden="true"
-        className="absolute inset-0 rounded-2xl"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[85%] w-[90%] rounded-full"
         animate={
           reduce
             ? {}
             : {
                 background: [
-                  "radial-gradient(ellipse at 60% 40%, rgba(56,189,248,0.18) 0%, transparent 70%)",
-                  "radial-gradient(ellipse at 60% 40%, rgba(99,102,241,0.18) 0%, transparent 70%)",
-                  "radial-gradient(ellipse at 60% 40%, rgba(56,189,248,0.18) 0%, transparent 70%)",
+                  "radial-gradient(ellipse at 50% 100%, rgba(56,189,248,0.20) 0%, rgba(56,189,248,0.05) 45%, transparent 70%)",
+                  "radial-gradient(ellipse at 50% 100%, rgba(99,102,241,0.20) 0%, rgba(99,102,241,0.05) 45%, transparent 70%)",
+                  "radial-gradient(ellipse at 50% 100%, rgba(56,189,248,0.20) 0%, rgba(56,189,248,0.05) 45%, transparent 70%)",
                 ],
               }
         }
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        style={{ filter: "blur(40px)" }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        style={{ filter: "blur(28px)" }}
       />
 
-      <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg">
-
-        {/* Main image card */}
+      {/* ── Pulsing floor shadow ── */}
+      {!reduce && (
         <Motion.div
-          className="relative overflow-hidden rounded-2xl border border-slate-700/40 shadow-2xl shadow-slate-950/60"
-          style={{ aspectRatio: "3/4" }}
-          whileHover={reduce ? {} : { scale: 1.012 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          aria-hidden="true"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 h-6 w-40 rounded-full bg-sky-500/20"
+          animate={{ scaleX: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          style={{ filter: "blur(10px)" }}
+        />
+      )}
+
+      {/* ── Floating figure wrapper ── */}
+      <Motion.div
+        className="relative z-10"
+        animate={reduce ? {} : { y: [0, -8, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        {/* FIX 2: No card/border — pure PNG cutout with drop-shadow tracing silhouette */}
+        <Motion.img
+          src={profileImage}
+          alt="Portrait of Rajnish Kumar"
+          loading="eager"
+          className="h-[420px] w-auto object-contain object-om sm:h-[480px] md:h-[620px] lg:h-[520px]"
+          animate={
+            reduce
+              ? {}
+              : {
+                  filter: [
+                    "drop-shadow(0 24px 48px rgba(0,0,0,0.95)) drop-shadow(0 0 32px rgba(56,189,248,0.12))",
+                    "drop-shadow(0 24px 48px rgba(0,0,0,0.95)) drop-shadow(0 0 52px rgba(56,189,248,0.26))",
+                    "drop-shadow(0 24px 48px rgba(0,0,0,0.95)) drop-shadow(0 0 32px rgba(56,189,248,0.12))",
+                  ],
+                }
+          }
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* ── Open to work badge ── */}
+        <Motion.div
+          className="absolute -top-1 right-4 z-20"
+          initial={reduce ? {} : { opacity: 0, y: -10, scale: 0.85 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.5, delay: 1.0 }}
         >
-          {/* Subtle dark vignette at bottom for overlays */}
-          <div className="absolute inset-0 z-10 bg-gradient-to-t from-slate-950/85 via-slate-950/10 to-transparent" />
-
-          {/* Subtle top-left corner accent */}
-          <div className="absolute left-0 top-0 z-10 h-24 w-24 bg-gradient-to-br from-sky-500/10 to-transparent" />
-
-          {/* Profile photo */}
-          <Motion.img
-            src={profileImage}
-            alt="Portrait of Rajnish Kumar"
-            loading="eager"
-            className="h-full w-full object-cover object-top"
-            animate={reduce ? {} : { scale: [1, 1.04, 1] }}
-            transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-          />
-
-          {/* Top-left role badge */}
-          <Motion.div
-            className="absolute left-4 top-4 z-20"
-            initial={reduce ? {} : { opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
-          >
-            <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-slate-900/70 px-3 py-1.5 backdrop-blur-md">
-              <Motion.span
-                className="h-2 w-2 rounded-full bg-sky-400"
-                animate={reduce ? {} : { scale: [1, 1.6, 1], opacity: [1, 0.4, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-              <span className="text-xs font-semibold text-sky-300">Open to work</span>
-            </div>
-          </Motion.div>
-
-          {/* Bottom info overlay */}
-          <Motion.div
-            className="absolute bottom-0 left-0 right-0 z-20 p-5"
-            initial={reduce ? {} : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.2 }}
-          >
-            {/* Name & college card */}
-            <div className="rounded-xl border border-slate-700/50 bg-slate-900/75 p-4 backdrop-blur-md">
-              <div className="flex items-end justify-between">
-                <div>
-                  <p className="text-lg font-bold leading-tight text-white">
-                    Rajnish Kumar
-                  </p>
-                  <p className="mt-0.5 text-xs font-medium text-slate-400">
-                    {profileData.shortSchool} · Final-year B.Tech CSE
-                  </p>
-                </div>
-                {/* MERN stack dot grid decoration */}
-                <div className="grid grid-cols-2 gap-1 opacity-60">
-                  {[ "M","E","R", "N"].map((l) => (
-                    <span
-                      key={l}
-                      className="flex h-5 w-5 items-center justify-center rounded bg-slate-800 text-[9px] font-bold text-sky-400"
-                    >
-                      {l}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Motion.div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-slate-900/85 px-3 py-1.5 shadow-lg shadow-sky-400/10 backdrop-blur-md">
+            <Motion.span
+              className="h-2 w-2 flex-shrink-0 rounded-full bg-sky-400"
+              animate={reduce ? {} : { scale: [1, 1.7, 1], opacity: [1, 0.35, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <span className="text-xs font-semibold tracking-wide text-sky-300">
+              Open to work
+            </span>
+          </div>
         </Motion.div>
 
-        {/* Floating tech stack chips on the right edge */}
-        {!reduce && (
-          <Motion.div
-            className="absolute -right-3 top-10 flex flex-col gap-2"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 1.4 }}
-          >
-            {["React", "Node.js", "Firebase", "MongoDB"].map((tech, i) => (
-              <Motion.span
-                key={tech}
-                className="rounded-full border border-slate-700/80 bg-slate-900/90 px-3 py-1 text-xs font-medium text-sky-300 shadow-lg backdrop-blur-sm"
-                initial={{ opacity: 0, x: 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                whileHover={{ x: -4, borderColor: "rgba(125,211,252,0.5)" }}
-                transition={{ delay: 1.5 + i * 0.1, duration: 0.4 }}
-              >
-                {tech}
-              </Motion.span>
-            ))}
-          </Motion.div>
-        )}
-
-        {/* Decorative corner line accent */}
-        {!reduce && (
-          <Motion.div
-            className="absolute -bottom-3 -left-3 h-16 w-16"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.6 }}
-          >
-            <div className="h-full w-full border-b-2 border-l-2 border-sky-400/30 rounded-bl-xl" />
-          </Motion.div>
-        )}
-      </div>
+        {/* ── Name + college + MERN strip at bottom ── */}
+        <Motion.div
+          className="absolute -bottom-4 left-1/2 z-20 w-[calc(100%-8px)] -translate-x-1/2"
+          initial={reduce ? {} : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+        >
+          <div className="rounded-xl border border-white/[0.07] bg-slate-900/85 px-4 py-3 shadow-xl shadow-slate-950/60 backdrop-blur-md">
+            <div className="flex items-center justify-between gap-3">
+              <div className="min-w-0">
+                <p className="truncate text-sm font-bold text-white">Rajnish Kumar</p>
+                <p className="mt-0.5 truncate text-[11px] text-slate-400">
+                  {profileData.shortSchool} · Final-year B.Tech CSE
+                </p>
+              </div>
+              {/* FIX 3: MERN as a clean horizontal row, not a 2×2 grid */}
+              <div className="flex flex-shrink-0 items-center gap-1">
+                {["M", "E", "R", "N"].map((l) => (
+                  <span
+                    key={l}
+                    className="flex h-6 w-6 items-center justify-center rounded-md bg-slate-800 text-[10px] font-bold text-sky-400 ring-1 ring-slate-700/50"
+                  >
+                    {l}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Motion.div>
+      </Motion.div>
     </Motion.div>
   );
 };
@@ -458,7 +434,7 @@ const Hero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="relative mx-auto grid min-h-[calc(100svh-8.5rem)] max-w-6xl grid-cols-1 items-center gap-8 md:grid-cols-[1fr_420px] md:gap-12 lg:grid-cols-[1fr_460px]"
+        className="relative mx-auto grid min-h-[calc(100svh-8.5rem)] max-w-6xl grid-cols-1 items-center gap-8 md:grid-cols-[1fr_400px] md:gap-10 lg:grid-cols-[1fr_440px]"
       >
         {/* ── Left column ── */}
         <div>
@@ -490,7 +466,7 @@ const Hero = () => {
 
           {/* Highlight chips */}
           <Motion.div
-            className="mt-5 flex flex-wrap gap-2"
+            className="mt-4 flex flex-wrap gap-2"
             variants={containerVariants}
           >
             {highlights.map((item, i) => (
@@ -517,7 +493,7 @@ const Hero = () => {
 
           {/* Stats */}
           <Motion.div
-            className="mt-5 grid max-w-xl grid-cols-3 overflow-hidden rounded-lg border border-slate-800 bg-slate-900/55"
+            className="mt-4 grid max-w-xl grid-cols-3 overflow-hidden rounded-lg border border-slate-800 bg-slate-900/55"
             variants={fadeUp(reduceMotion, 0.2)}
           >
             {heroStats.map((stat, i) => (
@@ -544,7 +520,7 @@ const Hero = () => {
           </Motion.div>
 
           {/* CTA Buttons */}
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-5 flex flex-wrap gap-3">
             <MagneticBtn
               href="#projects"
               ariaLabel="View Projects"
@@ -588,7 +564,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* ── Right column: editorial profile image ── */}
+        {/* ── Right column: popped-up profile photo ── */}
         <ProfileImage reduce={reduceMotion} />
       </Motion.div>
     </section>
