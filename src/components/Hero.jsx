@@ -1,12 +1,15 @@
-import { motion as Motion, useReducedMotion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
+import {
+  motion as Motion,
+  useReducedMotion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import profileImage from "../assets/Profile.png";
 import Resume from "../assets/Kumar_Rajnish_Resume_06-05-2026.pdf";
-import {
-  heroStats,
-  highlights,
-  profile as profileData,
-} from "../data/profile";
+import { heroStats, highlights, profile as profileData } from "../data/profile";
 
 /* ─── Variants ─────────────────────────────────────── */
 
@@ -28,7 +31,9 @@ const fadeUp = (reduce, delay = 0) => ({
 });
 
 const imageVariant = (reduce) => ({
-  hidden: reduce ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92, y: 30 },
+  hidden: reduce
+    ? { opacity: 1, scale: 1 }
+    : { opacity: 0, scale: 0.92, y: 30 },
   show: {
     opacity: 1,
     scale: 1,
@@ -61,21 +66,25 @@ const buttonVariant = {
   show: (i) => ({
     opacity: 1,
     x: 0,
-    transition: { duration: 0.5, delay: 0.6 + i * 0.1, ease: [0.22, 1, 0.36, 1] },
+    transition: {
+      duration: 0.5,
+      delay: 0.6 + i * 0.1,
+      ease: [0.22, 1, 0.36, 1],
+    },
   }),
 };
 
 /* ─── Animated Word Headline ────────────────────────── */
 
 const words = [
-  { text: "Building",     highlight: false },
-  { text: "reliable",     highlight: true  },
-  { text: "software",     highlight: false },
-  { text: "with",         highlight: false },
-  { text: "strong",       highlight: false },
-  { text: "frontend",     highlight: true  },
-  { text: "engineering",  highlight: false },
-  { text: "depth.",       highlight: false },
+  { text: "Building", highlight: false },
+  { text: "reliable", highlight: true },
+  { text: "software", highlight: false },
+  { text: "with", highlight: false },
+  { text: "strong", highlight: false },
+  { text: "frontend", highlight: true },
+  { text: "engineering", highlight: false },
+  { text: "depth.", highlight: false },
 ];
 
 const WordReveal = ({ reduce }) => (
@@ -130,7 +139,11 @@ const WordReveal = ({ reduce }) => (
               className="absolute -bottom-1 left-0 h-[3px] rounded-full bg-sky-400"
               initial={{ scaleX: 0, originX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 + i * 0.09, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.6,
+                delay: 0.8 + i * 0.09,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               style={{ display: "block" }}
             />
           </Motion.span>
@@ -144,7 +157,15 @@ const WordReveal = ({ reduce }) => (
 
 /* ─── Magnetic Button ───────────────────────────────── */
 
-const MagneticBtn = ({ children, className, href, target, rel, ariaLabel, custom }) => {
+const MagneticBtn = ({
+  children,
+  className,
+  href,
+  target,
+  rel,
+  ariaLabel,
+  custom,
+}) => {
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -157,7 +178,10 @@ const MagneticBtn = ({ children, className, href, target, rel, ariaLabel, custom
     y.set((e.clientY - rect.top - rect.height / 2) * 0.35);
   };
 
-  const reset = () => { x.set(0); y.set(0); };
+  const reset = () => {
+    x.set(0);
+    y.set(0);
+  };
 
   return (
     <Motion.a
@@ -202,7 +226,12 @@ const Counter = ({ value }) => {
   }, [num]);
 
   if (isNaN(num)) return <span>{value}</span>;
-  return <span>{display}{suffix}</span>;
+  return (
+    <span>
+      {display}
+      {suffix}
+    </span>
+  );
 };
 
 /* ─── Particle Field ────────────────────────────────── */
@@ -219,12 +248,20 @@ const Particle = ({ reduce }) => {
   }));
 
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div
+      className="pointer-events-none absolute inset-0 overflow-hidden"
+      aria-hidden="true"
+    >
       {particles.map((p) => (
         <Motion.div
           key={p.id}
           className="absolute rounded-full bg-sky-400/30"
-          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size }}
+          style={{
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            width: p.size,
+            height: p.size,
+          }}
           animate={{
             y: [0, -30, 0],
             opacity: [0, 0.7, 0],
@@ -334,7 +371,9 @@ const ProfileImage = ({ reduce }) => {
           <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-slate-900/85 px-3 py-1.5 shadow-lg shadow-sky-400/10 backdrop-blur-md">
             <Motion.span
               className="h-2 w-2 flex-shrink-0 rounded-full bg-sky-400"
-              animate={reduce ? {} : { scale: [1, 1.7, 1], opacity: [1, 0.35, 1] }}
+              animate={
+                reduce ? {} : { scale: [1, 1.7, 1], opacity: [1, 0.35, 1] }
+              }
               transition={{ duration: 2, repeat: Infinity }}
             />
             <span className="text-xs font-semibold tracking-wide text-sky-300">
@@ -353,9 +392,11 @@ const ProfileImage = ({ reduce }) => {
           <div className="rounded-xl border border-white/[0.07] bg-slate-900/85 px-4 py-3 shadow-xl shadow-slate-950/60 backdrop-blur-md">
             <div className="flex items-center justify-between gap-3">
               <div className="min-w-0">
-                <p className="truncate text-sm font-bold text-white">Rajnish Kumar</p>
+                <p className="truncate text-sm font-bold text-white">
+                  Rajnish Kumar
+                </p>
                 <p className="mt-0.5 truncate text-[11px] text-slate-400">
-                  {profileData.shortSchool} · Final-year B.Tech CSE
+                  {profileData.shortSchool} · B.Tech CSE Graduate (2026)
                 </p>
               </div>
               {/* FIX 3: MERN as a clean horizontal row, not a 2×2 grid */}
@@ -399,13 +440,23 @@ const Hero = () => {
           <Motion.div
             aria-hidden="true"
             className="absolute left-[-12rem] top-24 h-80 w-80 rounded-full bg-sky-500/10 blur-3xl"
-            animate={{ x: [0, 32, 0], y: [0, -20, 0], opacity: [0.4, 0.9, 0.4], scale: [1, 1.15, 1] }}
+            animate={{
+              x: [0, 32, 0],
+              y: [0, -20, 0],
+              opacity: [0.4, 0.9, 0.4],
+              scale: [1, 1.15, 1],
+            }}
             transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
           />
           <Motion.div
             aria-hidden="true"
             className="absolute bottom-10 right-[-10rem] h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl"
-            animate={{ x: [0, -28, 0], y: [0, 22, 0], opacity: [0.3, 0.8, 0.3], scale: [1, 1.1, 1] }}
+            animate={{
+              x: [0, -28, 0],
+              y: [0, 22, 0],
+              opacity: [0.3, 0.8, 0.3],
+              scale: [1, 1.1, 1],
+            }}
             transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
           />
           <Motion.div
@@ -440,7 +491,7 @@ const Hero = () => {
         <div>
           {/* Badge */}
           <GlitchBadge reduce={reduceMotion}>
-            Software Development Engineer / MERN Stack-leaning
+            Software Development Engineer / React & MERN Stack
           </GlitchBadge>
 
           {/* Animated headline */}
@@ -451,8 +502,11 @@ const Hero = () => {
             className="max-w-xl text-sm leading-relaxed text-slate-300/90 md:text-base lg:text-lg"
             variants={fadeUp(reduceMotion, 0.1)}
           >
-            I am <span className="text-white">Rajnish Kumar</span>, a final-year{" "}
-            <span className="text-white">B.Tech Computer Science</span> student at{" "}
+            I am <span className="text-white">Rajnish Kumar</span>, a recent{" "}
+            <span className="text-white">
+              B.Tech Computer Science graduate (2026)
+            </span>{" "}
+            from{" "}
             <Motion.span
               className="font-medium text-sky-300"
               whileHover={reduceMotion ? {} : { letterSpacing: "0.02em" }}
@@ -460,8 +514,8 @@ const Hero = () => {
             >
               {profileData.shortSchool}
             </Motion.span>
-            . I combine data structures, algorithms, OOP, React, Firebase, REST APIs, and product
-            thinking to build maintainable applications.
+            . I combine data structures, algorithms, OOP, React, Firebase, REST
+            APIs, and product thinking to build maintainable applications.
           </Motion.p>
 
           {/* Highlight chips */}
@@ -533,8 +587,18 @@ const Hero = () => {
                 transition={{ duration: 0.4 }}
               >
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  <path d="M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  <path
+                    d="M5 12h14"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M12 5l7 7-7 7"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
                 </svg>
               </Motion.span>
               View Projects

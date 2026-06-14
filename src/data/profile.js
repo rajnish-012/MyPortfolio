@@ -10,7 +10,7 @@ export const profile = {
   shortSchool: "IIIT Tiruchirappalli",
   degree: "B.Tech in Computer Science and Engineering",
   collegeDuration: "Nov 2022 - May 2026",
-  cgpa: "7.15 / 10.0",
+  cgpa: "7.21 / 10.0",
 };
 
 export const highlights = [

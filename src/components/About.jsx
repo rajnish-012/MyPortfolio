@@ -14,7 +14,10 @@ const About = () => {
           />
         </AnimatedSection>
 
-        <AnimatedSection className="grid gap-6 md:grid-cols-[1.5fr_1fr]" delay={0.08}>
+        <AnimatedSection
+          className="grid gap-6 md:grid-cols-[1.5fr_1fr]"
+          delay={0.08}
+        >
           <div className="rounded-lg border border-slate-800 bg-slate-950/70 p-6 text-slate-300 md:p-8">
             <div className="space-y-5 leading-relaxed">
               <p>
@@ -33,9 +36,10 @@ const About = () => {
               </p>
 
               <p>
-                I am looking for entry-level Software Development Engineer roles
-                where I can contribute across application logic, frontend
-                systems, APIs, and user-facing product quality.
+                I am actively seeking Software Development Engineer and Full
+                Stack Developer opportunities where I can contribute across
+                application logic, frontend systems, APIs, and user-facing
+                product quality.
               </p>
             </div>
           </div>
