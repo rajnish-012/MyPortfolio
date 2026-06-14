@@ -21,11 +21,11 @@ const About = () => {
           <div className="rounded-lg border border-slate-800 bg-slate-950/70 p-6 text-slate-300 md:p-8">
             <div className="space-y-5 leading-relaxed">
               <p>
-                I am a final-year B.Tech Computer Science student at IIIT
-                Tiruchirappalli, focused on software development with a strong
-                frontend engineering edge. My foundation includes Data
-                Structures, Algorithms, Object-Oriented Programming, DBMS,
-                Operating Systems, and Computer Networks.
+                I am a recent B.Tech Computer Science and Engineering graduate
+                (2026) from IIIT Tiruchirappalli, focused on software
+                development with a strong frontend engineering edge. My
+                foundation includes Data Structures, Algorithms, Object-Oriented
+                Programming, DBMS, Operating Systems, and Computer Networks.
               </p>
 
               <p>
