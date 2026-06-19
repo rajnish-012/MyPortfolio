@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import profileImage from "../assets/Profile.png";
-import Resume from "../assets/Kumar_Rajnish_Resume_06-05-2026.pdf";
+import Resume from "../assets/Resume_June-Rajnish_kumar.pdf";
 import { heroStats, highlights, profile as profileData } from "../data/profile";
 
 /* ─── Variants ─────────────────────────────────────── */
