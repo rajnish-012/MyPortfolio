@@ -3,11 +3,10 @@ import {
   useReducedMotion,
   useMotionValue,
   useSpring,
-  useTransform,
   AnimatePresence,
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import profileImage from "../assets/Profile.png";
+import profileImage from "../assets/Profile.webp"; // ← convert Profile.png → Profile.webp using squoosh.app
 import Resume from "../assets/Resume_June-Rajnish_kumar.pdf";
 import { heroStats, highlights, profile as profileData } from "../data/profile";
 
@@ -89,7 +88,6 @@ const words = [
 
 const WordReveal = ({ reduce }) => (
   <Motion.h1
-    /* FIX 1: reduced lg size from text-6xl → text-5xl so buttons stay visible */
     className="mb-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-4xl lg:text-5xl"
     variants={containerVariants}
     initial="hidden"
@@ -341,11 +339,15 @@ const ProfileImage = ({ reduce }) => {
         animate={reduce ? {} : { y: [0, -8, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       >
-        {/* FIX 2: No card/border — pure PNG cutout with drop-shadow tracing silhouette */}
+        {/* ── Profile image: WebP, explicit size, fetchpriority high ── */}
         <Motion.img
           src={profileImage}
           alt="Portrait of Rajnish Kumar"
           loading="eager"
+          fetchPriority="high"
+          width={455}
+          height={520}
+          decoding="async"
           className="h-[420px] w-auto object-contain object-om sm:h-[480px] md:h-[620px] lg:h-[520px]"
           animate={
             reduce
@@ -399,7 +401,7 @@ const ProfileImage = ({ reduce }) => {
                   {profileData.shortSchool} · B.Tech CSE Graduate (2026)
                 </p>
               </div>
-              {/* FIX 3: MERN as a clean horizontal row, not a 2×2 grid */}
+              {/* MERN stack badges */}
               <div className="flex flex-shrink-0 items-center gap-1">
                 {["M", "E", "R", "N"].map((l) => (
                   <span
@@ -628,7 +630,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* ── Right column: popped-up profile photo ── */}
+        {/* ── Right column: profile photo ── */}
         <ProfileImage reduce={reduceMotion} />
       </Motion.div>
     </section>
