@@ -1,13 +1,13 @@
 export const featuredProjects = [
-  {
+    {
     title: "SyncTube — Real-Time YouTube Watch Party Platform",
     type: "Real-Time Web Platform",
     description:
-      "A real-time watch-party platform built with React and Node.js, enabling synchronized YouTube playback across unlimited viewers per room via Socket.IO, with server-enforced role-based playback control and automated test coverage.",
+      "A real-time watch-party platform built with React and Node.js, syncing YouTube playback across viewers via Socket.IO with server-enforced role-based access control.",
     impact: [
-      "Built a server-authoritative sync engine with client-side drift correction, keeping playback within 1.5s across all viewers regardless of network latency",
-      "Designed an OOP backend (Room, Participant, RoomManager, SocketHandler classes) enforcing 3-tier role-based access control (Host/Moderator/Participant) server-side",
-      "Diagnosed and fixed race-condition and state-synchronization bugs in the playback pipeline, validated with a 16-check automated Socket.IO integration test suite",
+      "Built a server-authoritative sync engine with client-side drift correction for sub-1.5s accuracy",
+      "Designed an OOP backend enforcing 3-tier role-based access control, validated server-side",
+      "Diagnosed and fixed sync bugs in the playback pipeline, covered by 16 automated tests",
     ],
     tech: [
       "React",
@@ -19,7 +19,7 @@ export const featuredProjects = [
       "Render",
     ],
     github: "https://github.com/rajnish-012/synctube",
-    live: "https://your-live-url.onrender.com",
+    live: "https://synctube-kxnc.onrender.com/",
   },
   {
     title: "DMPL — Delhi Medicos Premier League",
