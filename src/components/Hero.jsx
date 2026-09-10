@@ -493,7 +493,7 @@ const Hero = () => {
         <div>
           {/* Badge */}
           <GlitchBadge reduce={reduceMotion}>
-            Software Development Engineer / React & MERN Stack
+            Software Development Engineer / React, Node.js & Real-Time Systems
           </GlitchBadge>
 
           {/* Animated headline */}
