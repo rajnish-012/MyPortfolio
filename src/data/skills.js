@@ -3,7 +3,6 @@ export const skillGroups = [
     title: "Frontend",
     skills: [
       "React.js",
-      "React Native",
       "Next.js",
       "JavaScript ES6+",
       "TypeScript",
@@ -23,18 +22,14 @@ export const skillGroups = [
       "Firebase Functions",
       "Firebase Auth",
       "Firestore",
-      "MySQL",
       "MongoDB",
-      "SQL Query Optimization",
     ],
   },
   {
     title: "Languages & CS",
     skills: [
-      "C",
       "C++",
       "Python",
-      "PHP",
       "Data Structures",
       "Algorithms",
       "OOP",
