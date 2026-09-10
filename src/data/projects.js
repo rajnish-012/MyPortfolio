@@ -1,24 +1,46 @@
 export const featuredProjects = [
   {
-    title: "ResumeIQ — AI Powered Resume Analyser",
-    type: "AI Resume Analysis",
+    title: "SyncTube — Real-Time YouTube Watch Party Platform",
+    type: "Real-Time Web Platform",
     description:
-      "A React.js web application that compares resumes against job descriptions via REST API calls and delivers structured match feedback through a clear analysis interface.",
+      "A real-time watch-party platform built with React and Node.js, enabling synchronized YouTube playback across unlimited viewers per room via Socket.IO, with server-enforced role-based playback control and automated test coverage.",
     impact: [
-      "Implemented component-level state management for seamless multi-step resume analysis flow",
-      "Handled asynchronous Puter.js API requests for non-blocking UI interactions and real-time feedback",
-      "Designed reusable UI components with clear information hierarchy for match scoring display",
+      "Built a server-authoritative sync engine with client-side drift correction, keeping playback within 1.5s across all viewers regardless of network latency",
+      "Designed an OOP backend (Room, Participant, RoomManager, SocketHandler classes) enforcing 3-tier role-based access control (Host/Moderator/Participant) server-side",
+      "Diagnosed and fixed race-condition and state-synchronization bugs in the playback pipeline, validated with a 16-check automated Socket.IO integration test suite",
     ],
     tech: [
-      "React.js",
-      "React Router",
-      "JavaScript",
-      "Puter.js",
-      "REST API",
-      "Vercel",
+      "React",
+      "Vite",
+      "Node.js",
+      "Express",
+      "Socket.IO",
+      "WebSockets",
+      "Render",
     ],
-    github: "https://github.com/rajnish-012/ai-resume-parser",
-    live: "https://ai-parseresume.vercel.app/",
+    github: "https://github.com/rajnish-012/synctube",
+    live: "https://your-live-url.onrender.com",
+  },
+  {
+    title: "DMPL — Delhi Medicos Premier League",
+    type: "Full-Stack Web Platform",
+    description:
+      "A full-stack cricket tournament platform built with React and PocketBase, featuring real-time live scoring, a player auction engine, payment verification, and a protected admin panel.",
+    impact: [
+      "Built real-time live scoring with PocketBase SSE subscriptions and ball-by-ball stat calculations",
+      "Implemented a player auction engine with server-side race-condition protection and bid validation",
+      "Engineered a payment verification workflow with UPI QR integration and admin approval flow",
+    ],
+    tech: [
+      "React",
+      "Vite",
+      "PocketBase",
+      "SQLite",
+      "Tailwind CSS",
+      "Server-Side Events",
+    ],
+    github : null,
+    live: "https://dmplt20.com",
   },
   {
     title: "FaithConnect — Cross-Platform Mobile MVP",
@@ -42,30 +64,30 @@ export const featuredProjects = [
     github: "https://github.com/rajnish-012/faithconnect",
     live: "https://expo.dev/accounts/rajnish_kr/projects/faithconnect/builds/8350720f-cb20-445a-875c-c8e2b2371346",
   },
-  {
-    title: "DMPL — Delhi Medicos Premier League",
-    type: "Full-Stack Web Platform",
-    description:
-      "A full-stack cricket tournament platform built with React and PocketBase, featuring real-time live scoring, a player auction engine, payment verification, and a protected admin panel.",
-    impact: [
-      "Built real-time live scoring with PocketBase SSE subscriptions and ball-by-ball stat calculations",
-      "Implemented a player auction engine with server-side race-condition protection and bid validation",
-      "Engineered a payment verification workflow with UPI QR integration and admin approval flow",
-    ],
-    tech: [
-      "React",
-      "Vite",
-      "PocketBase",
-      "SQLite",
-      "Tailwind CSS",
-      "Server-Side Events",
-    ],
-    github : null,
-    live: "https://dmplt20.com",
-  },
 ];
 
 export const otherProjects = [
+  {
+    title: "ResumeIQ — AI Powered Resume Analyser",
+    type: "AI Resume Analysis",
+    description:
+      "A React.js web application that compares resumes against job descriptions via REST API calls and delivers structured match feedback through a clear analysis interface.",
+    impact: [
+      "Implemented component-level state management for seamless multi-step resume analysis flow",
+      "Handled asynchronous Puter.js API requests for non-blocking UI interactions and real-time feedback",
+      "Designed reusable UI components with clear information hierarchy for match scoring display",
+    ],
+    tech: [
+      "React.js",
+      "React Router",
+      "JavaScript",
+      "Puter.js",
+      "REST API",
+      "Vercel",
+    ],
+    github: "https://github.com/rajnish-012/ai-resume-parser",
+    live: "https://ai-parseresume.vercel.app/",
+  },
   {
     title: "Vidyartha — AI-Powered EdTech Platform",
     type: "Full-Stack Web Platform",
