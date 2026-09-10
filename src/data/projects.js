@@ -21,23 +21,23 @@ export const featuredProjects = [
     github: "https://github.com/rajnish-012/synctube",
     live: "https://synctube-kxnc.onrender.com/",
   },
-  {
+    {
     title: "DMPL — Delhi Medicos Premier League",
     type: "Full-Stack Web Platform",
     description:
-      "A full-stack cricket tournament platform built with React and PocketBase, featuring real-time live scoring, a player auction engine, payment verification, and a protected admin panel.",
+      "A full-stack e-commerce-style platform built with React, Vite, and PocketBase (Go), powering registration, payment, and live-status modules for an 8-team medical college cricket tournament.",
     impact: [
-      "Built real-time live scoring with PocketBase SSE subscriptions and ball-by-ball stat calculations",
-      "Implemented a player auction engine with server-side race-condition protection and bid validation",
-      "Engineered a payment verification workflow with UPI QR integration and admin approval flow",
+      "Integrated Razorpay end-to-end — server-side order creation plus HMAC-SHA256 webhook verification",
+      "Automated transactional email (SMTP) for confirmations and built an admin tool for payment reconciliation",
+      "Powered registration for 150+ players across 8 teams from 80+ medical colleges",
     ],
     tech: [
       "React",
       "Vite",
       "PocketBase",
-      "SQLite",
       "Tailwind CSS",
-      "Server-Side Events",
+      "Razorpay",
+      "SMTP",
     ],
     github : null,
     live: "https://dmplt20.com",
