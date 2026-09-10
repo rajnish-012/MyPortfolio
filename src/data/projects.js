@@ -42,15 +42,15 @@ export const featuredProjects = [
     github : null,
     live: "https://dmplt20.com",
   },
-  {
+    {
     title: "FaithConnect — Cross-Platform Mobile MVP",
     type: "Mobile Community App",
     description:
       "A cross-platform mobile community app built with React Native and TypeScript, targeting iOS and Android from a single codebase with real-time data sync.",
     impact: [
-      "Integrated Firebase Auth for secure user onboarding with persistent session management",
-      "Used Firestore real-time listeners for live data synchronization across devices",
-      "Built scalable mobile screens with TypeScript ensuring type-safe component architecture",
+      "Integrated Firebase Firestore and Firebase Auth for real-time sync and secure onboarding",
+      "Built a modular, scalable navigation architecture spanning 11 screens",
+      "Supported 3 distinct roles — public, worshiper, and leader — across the app",
     ],
     tech: [
       "React Native",
