@@ -10,7 +10,7 @@ const About = () => {
             eyebrow="About"
             title="SDE With"
             accent="Frontend Depth"
-            description="I care about software that is useful, readable, and reliable. My work combines CS fundamentals, React development, API integration, accessibility, and product-minded UI."
+            description="I care about software that is useful, readable, and reliable. My work combines CS fundamentals, React development, real-time systems, API integration, and product-minded UI."
           />
         </AnimatedSection>
 
@@ -30,16 +30,19 @@ const About = () => {
 
               <p>
                 My current stack centers on React.js, React Native, Node.js,
-                Express.js, Firebase, REST APIs, MySQL, MongoDB, JavaScript, and
-                TypeScript. I like building reliable application workflows with
-                clean UI, secure authentication, and practical data handling.
+                Express.js, Socket.IO, PocketBase, and Firebase, with
+                JavaScript, TypeScript, and C++ across the frontend and
+                backend, backed by MySQL, MongoDB, and Firebase Firestore for
+                data storage. I like building reliable application workflows
+                with clean UI, secure authentication, real-time data sync, and
+                practical data handling.
               </p>
 
               <p>
                 I am actively seeking Software Development Engineer and Full
                 Stack Developer opportunities where I can contribute across
-                application logic, frontend systems, APIs, and user-facing
-                product quality.
+                application logic, frontend systems, real-time and backend
+                APIs, and user-facing product quality.
               </p>
             </div>
           </div>
@@ -50,7 +53,7 @@ const About = () => {
               {[
                 ["Focus", "SDE roles with frontend/UI engineering depth"],
                 ["Strength", "React components, state, forms, and routing"],
-                ["Backend", "Node.js, Express.js, Firebase, REST APIs"],
+                ["Backend", "Node.js, Express.js, Socket.IO, PocketBase, Firebase"],
                 ["Mindset", "Clean code, debugging, and steady iteration"],
               ].map(([label, value]) => (
                 <div key={label}>
