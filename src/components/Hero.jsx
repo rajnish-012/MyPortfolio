@@ -7,7 +7,7 @@ import {
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import profileImage from "../assets/Profile.webp"; // ← convert Profile.png → Profile.webp using squoosh.app
-import Resume from "../assets/Resume_June-Rajnish_kumar.pdf";
+import Resume from "../assets/August_Resume_Rajnish_Kumar.pdf";
 import { heroStats, highlights, profile as profileData } from "../data/profile";
 
 /* ─── Variants ─────────────────────────────────────── */
