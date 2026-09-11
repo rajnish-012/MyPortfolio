@@ -147,5 +147,5 @@ export const otherProjects = [
     "Browser-based scientific calculator with standard and advanced arithmetic operations in a clean interface.",
   tech: ["JavaScript", "HTML", "CSS"],
   github: "https://github.com/rajnish-012/Scientific-Calculator",
-  live: null,
+  live: "https://scientific-calculator-bld2.vercel.app/",
 }]
