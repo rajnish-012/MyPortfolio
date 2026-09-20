@@ -1,10 +1,6 @@
 import { useRef, useState } from "react";
 import { motion as Motion } from "framer-motion";
-<<<<<<< HEAD
 import Resume from "../assets/Rajnish_kumar_Resume.pdf";
-=======
-import Resume from "../assets/August_Resume_Rajnish_Kumar.pdf";
->>>>>>> ac46aa0bbbb7f9ebc87ae04df00252b1f5c0cedb
 import SectionHeader from "./SectionHeader";
 import AnimatedSection from "./AnimatedSection";
 import { profile } from "../data/profile";

@@ -32,15 +32,9 @@ const About = () => {
         <AnimatedSection>
           <SectionHeader
             eyebrow="About"
-<<<<<<< HEAD
             title="Full Stack Developer,"
             accent="UI to Database"
             description="I build web applications end to end: the interface people use, the API behind it, and the data underneath. I care about code that is readable, secure, and easy to change."
-=======
-            title="SDE With"
-            accent="Frontend Depth"
-            description="I care about software that is useful, readable, and reliable. My work combines CS fundamentals, React development, real-time systems, API integration, and product-minded UI."
->>>>>>> ac46aa0bbbb7f9ebc87ae04df00252b1f5c0cedb
           />
         </AnimatedSection>
 
@@ -58,39 +52,22 @@ const About = () => {
               </p>
 
               <p>
-<<<<<<< HEAD
                 On top of that I work across the stack with React.js, Next.js,
                 React Native, Node.js, Express.js, NestJS, REST APIs,
                 PostgreSQL, MongoDB, MySQL, Firebase, and TypeScript. I like building reliable workflows:
                 clean UI, secure authentication, role-based access, and
-=======
-                My current stack centers on React.js, React Native, Node.js,
-                Express.js, Socket.IO, PocketBase, and Firebase, with
-                JavaScript, TypeScript, and C++ across the frontend and
-                backend, backed by MySQL, MongoDB, and Firebase Firestore for
-                data storage. I like building reliable application workflows
-                with clean UI, secure authentication, real-time data sync, and
->>>>>>> ac46aa0bbbb7f9ebc87ae04df00252b1f5c0cedb
                 practical data handling.
               </p>
 
               <p>
-<<<<<<< HEAD
                 I am currently a Full Stack Developer Intern at ARA Web
                 Technology, and I am looking for Full Stack Developer and
                 Software Development Engineer roles where I can own features
                 from the screen to the database.
-=======
-                I am actively seeking Software Development Engineer and Full
-                Stack Developer opportunities where I can contribute across
-                application logic, frontend systems, real-time and backend
-                APIs, and user-facing product quality.
->>>>>>> ac46aa0bbbb7f9ebc87ae04df00252b1f5c0cedb
               </p>
             </div>
           </div>
 
-<<<<<<< HEAD
           <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-6 md:p-8">
             <h3 className="text-lg font-semibold text-white">My stack</h3>
             <p className="mt-1 text-sm text-slate-400">
@@ -114,23 +91,6 @@ const About = () => {
                     ))}
                   </div>
                 </li>
-=======
-          <div className="rounded-lg border border-slate-800 bg-slate-950/70 p-6 md:p-8">
-            <h3 className="text-lg font-semibold text-white">What I Bring</h3>
-            <dl className="mt-6 space-y-5">
-              {[
-                ["Focus", "SDE roles with frontend/UI engineering depth"],
-                ["Strength", "React components, state, forms, and routing"],
-                ["Backend", "Node.js, Express.js, Socket.IO, PocketBase, Firebase"],
-                ["Mindset", "Clean code, debugging, and steady iteration"],
-              ].map(([label, value]) => (
-                <div key={label}>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-300">
-                    {label}
-                  </dt>
-                  <dd className="mt-1 text-sm text-slate-300">{value}</dd>
-                </div>
->>>>>>> ac46aa0bbbb7f9ebc87ae04df00252b1f5c0cedb
               ))}
             </ol>
           </div>

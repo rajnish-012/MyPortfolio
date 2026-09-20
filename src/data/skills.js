@@ -27,10 +27,7 @@ export const skillGroups = [
       "Firebase Auth",
       "Firestore",
       "MongoDB",
-<<<<<<< HEAD
       "PocketBase",
-=======
->>>>>>> ac46aa0bbbb7f9ebc87ae04df00252b1f5c0cedb
     ],
   },
   {
@@ -38,18 +35,10 @@ export const skillGroups = [
     icon: "code",
     summary: "Languages and fundamentals",
     skills: [
-<<<<<<< HEAD
       
       "C++(Oops)",
       "Python",
       "DSA",
-=======
-      "C++",
-      "Python",
-      "Data Structures",
-      "Algorithms",
-      "OOP",
->>>>>>> ac46aa0bbbb7f9ebc87ae04df00252b1f5c0cedb
       "DBMS",
       "Operating Systems",
       "Computer Networks",
