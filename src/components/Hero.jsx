@@ -7,7 +7,7 @@ import {
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import profileImage from "../assets/Profile.webp"; // ← convert Profile.png → Profile.webp using squoosh.app
-import Resume from "../assets/Resume_June-Rajnish_kumar.pdf";
+import Resume from "../assets/Rajnish_Kumar_Resume.pdf";
 import { heroStats, highlights, profile as profileData } from "../data/profile";
 
 /* ─── Variants ─────────────────────────────────────── */
@@ -77,13 +77,15 @@ const buttonVariant = {
 
 const words = [
   { text: "Building", highlight: false },
-  { text: "reliable", highlight: true },
-  { text: "software", highlight: false },
-  { text: "with", highlight: false },
-  { text: "strong", highlight: false },
-  { text: "frontend", highlight: true },
-  { text: "engineering", highlight: false },
-  { text: "depth.", highlight: false },
+  { text: "reliable", highlight: false },
+  { text: "full", highlight: true },
+  { text: "stack", highlight: true },
+  { text: "web", highlight: false },
+  { text: "apps,", highlight: false },
+  { text: "from", highlight: false },
+  { text: "UI", highlight: false },
+  { text: "to", highlight: false },
+  { text: "database.", highlight: false },
 ];
 
 const WordReveal = ({ reduce }) => (
@@ -95,7 +97,7 @@ const WordReveal = ({ reduce }) => (
   >
     {words.map(({ text, highlight }, i) => (
       <Motion.span
-        key={text}
+        key={`${text}-${i}`}
         className="mr-[0.2em] inline-block"
         variants={
           reduce
@@ -134,7 +136,7 @@ const WordReveal = ({ reduce }) => (
           >
             {text}
             <Motion.span
-              className="absolute -bottom-1 left-0 h-[3px] rounded-full bg-sky-400"
+              className="absolute -bottom-1 left-0 h-0.75 rounded-full bg-sky-400"
               initial={{ scaleX: 0, originX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{
@@ -235,15 +237,18 @@ const Counter = ({ value }) => {
 /* ─── Particle Field ────────────────────────────────── */
 
 const Particle = ({ reduce }) => {
+  const [particles] = useState(() =>
+    Array.from({ length: 18 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 2 + 1,
+      duration: Math.random() * 8 + 6,
+      delay: Math.random() * 4,
+    }))
+  );
+
   if (reduce) return null;
-  const particles = Array.from({ length: 18 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 2 + 1,
-    duration: Math.random() * 8 + 6,
-    delay: Math.random() * 4,
-  }));
 
   return (
     <div
@@ -281,11 +286,12 @@ const Particle = ({ reduce }) => {
 
 const GlitchBadge = ({ children, reduce }) => (
   <Motion.p
-    className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sky-300 md:text-sm"
+    className="mb-3 flex items-center gap-3 text-sm font-medium tracking-wide text-sky-300"
     initial={reduce ? {} : { opacity: 0, x: -20 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
   >
+    <span aria-hidden="true" className="h-px w-8 bg-sky-400/70" />
     <Motion.span
       animate={reduce ? {} : { opacity: [1, 0.6, 1] }}
       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -348,7 +354,7 @@ const ProfileImage = ({ reduce }) => {
           width={455}
           height={520}
           decoding="async"
-          className="h-[420px] w-auto object-contain object-om sm:h-[480px] md:h-[620px] lg:h-[520px]"
+          className="wrap-break-word w-auto object-contain object-bottom sm:h-120, md:h-155, lg:h-130"
           animate={
             reduce
               ? {}
@@ -372,7 +378,7 @@ const ProfileImage = ({ reduce }) => {
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-slate-900/85 px-3 py-1.5 shadow-lg shadow-sky-400/10 backdrop-blur-md">
             <Motion.span
-              className="h-2 w-2 flex-shrink-0 rounded-full bg-sky-400"
+              className="h-2 w-2 shrink-0 rounded-full bg-sky-400"
               animate={
                 reduce ? {} : { scale: [1, 1.7, 1], opacity: [1, 0.35, 1] }
               }
@@ -402,7 +408,7 @@ const ProfileImage = ({ reduce }) => {
                 </p>
               </div>
               {/* MERN stack badges */}
-              <div className="flex flex-shrink-0 items-center gap-1">
+              <div className="flex shrink-0 items-center gap-1">
                 {["M", "E", "R", "N"].map((l) => (
                   <span
                     key={l}
@@ -424,12 +430,6 @@ const ProfileImage = ({ reduce }) => {
 
 const Hero = () => {
   const reduceMotion = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <section
       id="hero"
@@ -441,7 +441,7 @@ const Hero = () => {
         <>
           <Motion.div
             aria-hidden="true"
-            className="absolute left-[-12rem] top-24 h-80 w-80 rounded-full bg-sky-500/10 blur-3xl"
+            className="absolute -left-48 top-24 h-80 w-80 rounded-full bg-sky-500/10 blur-3xl"
             animate={{
               x: [0, 32, 0],
               y: [0, -20, 0],
@@ -452,7 +452,7 @@ const Hero = () => {
           />
           <Motion.div
             aria-hidden="true"
-            className="absolute bottom-10 right-[-10rem] h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl"
+            className="absolute bottom-10 -right-40 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl"
             animate={{
               x: [0, -28, 0],
               y: [0, 22, 0],
@@ -493,7 +493,7 @@ const Hero = () => {
         <div>
           {/* Badge */}
           <GlitchBadge reduce={reduceMotion}>
-            Software Development Engineer / React & MERN Stack
+            Full Stack Developer / React, Next.js & Node.js
           </GlitchBadge>
 
           {/* Animated headline */}
@@ -504,7 +504,7 @@ const Hero = () => {
             className="max-w-xl text-sm leading-relaxed text-slate-300/90 md:text-base lg:text-lg"
             variants={fadeUp(reduceMotion, 0.1)}
           >
-            I am <span className="text-white">Rajnish Kumar</span>, a recent{" "}
+            I am <span className="text-white">Rajnish Kumar</span>, a full stack developer and recent{" "}
             <span className="text-white">
               B.Tech Computer Science graduate (2026)
             </span>{" "}
@@ -516,8 +516,9 @@ const Hero = () => {
             >
               {profileData.shortSchool}
             </Motion.span>
-            . I combine data structures, algorithms, OOP, React, Firebase, REST
-            APIs, and product thinking to build maintainable applications.
+            . I build React and Next.js interfaces, Node.js and NestJS APIs, and the
+            SQL, MongoDB, and Firebase data layers behind them, and I am
+            currently a full stack developer intern at ARA Web Technology.
           </Motion.p>
 
           {/* Highlight chips */}
@@ -565,7 +566,7 @@ const Hero = () => {
                 }
                 transition={{ duration: 0.2 }}
               >
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                <p className="text-xs font-medium text-slate-500">
                   {stat.label}
                 </p>
                 <p className="mt-1 text-sm font-semibold text-slate-100">

@@ -1,6 +1,6 @@
 export const profile = {
   name: "Rajnish Kumar",
-  role: "Software Development Engineer",
+  role: "Full Stack Developer",
   phone: "+91-9142192950",
   location: "India",
   email: "rajnishkr.22.11.48@gmail.com",
@@ -14,15 +14,15 @@ export const profile = {
 };
 
 export const highlights = [
-  "Software Engineering",
-  "Frontend Systems",
+  "React & Next.js",
+  "Node.js & Express",
+  "REST APIs",
+  "SQL & MongoDB",
   "Data Structures",
-  "API Integration",
-  "Product UI",
 ];
 
 export const heroStats = [
-  { label: "Focus", value: "SDE" },
-  { label: "Strength", value: "Frontend" },
+  { label: "Focus", value: "Full Stack" },
+  { label: "Internships", value: "2" },
   { label: "Core", value: "DSA + OOP" },
 ];

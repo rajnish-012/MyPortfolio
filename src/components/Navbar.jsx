@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
-import { motion as Motion } from "framer-motion";
-// import Resume from "../assets/Kumar_Rajnish_Resume_06-05-2026.pdf";
-import Resume from "../assets/Resume_June-Rajnish_kumar.pdf"
+import { AnimatePresence, motion as Motion } from "framer-motion";
+import Resume from "../assets/Rajnish_kumar_Resume.pdf";
 
 const links = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
-  {name: "Education", href: "#education" },
+  { name: "Education", href: "#education" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
+
+const focusRing =
+  "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60";
 
 const MenuIcon = ({ open }) => (
   <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -38,12 +40,10 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
-
+    // Sections are lazy-loaded, so query them on every scroll instead of once on mount.
     const onScroll = () => {
       const scrollY = window.scrollY + 120;
-
-      sections.forEach((section) => {
+      document.querySelectorAll("section[id]").forEach((section) => {
         if (
           scrollY >= section.offsetTop &&
           scrollY < section.offsetTop + section.offsetHeight
@@ -54,14 +54,27 @@ const Navbar = () => {
     };
 
     onScroll();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (event) => event.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-slate-800 bg-slate-950/85 backdrop-blur">
+    <nav
+      aria-label="Primary"
+      className="fixed top-0 z-50 w-full border-b border-slate-800 bg-slate-950/85 backdrop-blur"
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#hero" className="text-xl font-bold tracking-wide text-sky-400">
+        <a
+          href="#hero"
+          className={`rounded text-xl font-bold tracking-wide text-sky-400 ${focusRing}`}
+        >
           Rajnish<span className="text-slate-200">.</span>
         </a>
 
@@ -70,7 +83,8 @@ const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              className={`relative transition ${
+              aria-current={active === link.href ? "true" : undefined}
+              className={`relative rounded transition ${focusRing} ${
                 active === link.href
                   ? "text-sky-400"
                   : "text-slate-300 hover:text-sky-400"
@@ -89,7 +103,7 @@ const Navbar = () => {
             href={Resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-sky-400 px-3 py-2 text-sky-300 transition hover:bg-sky-400/10"
+            className={`rounded-lg border border-sky-400 px-3 py-2 text-sky-300 transition hover:bg-sky-400/10 ${focusRing}`}
           >
             Resume
           </a>
@@ -101,47 +115,50 @@ const Navbar = () => {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((value) => !value)}
-          className="rounded-lg border border-slate-800 p-2 text-slate-300 transition hover:border-sky-400 hover:text-sky-400 md:hidden"
+          className={`rounded-lg border border-slate-800 p-2 text-slate-300 transition hover:border-sky-400 hover:text-sky-400 md:hidden ${focusRing}`}
         >
           <MenuIcon open={open} />
         </button>
       </div>
 
-      {open && (
-        <Motion.div
-          id="mobile-menu"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0 }}
-          className="border-t border-slate-800 bg-slate-950/95 md:hidden"
-        >
-          <div className="flex flex-col px-6 py-4">
-            {links.map((link) => (
+      <AnimatePresence>
+        {open && (
+          <Motion.div
+            id="mobile-menu"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="border-t border-slate-800 bg-slate-950/95 md:hidden"
+          >
+            <div className="flex flex-col px-6 py-4">
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`rounded-lg px-2 py-3 text-sm ${focusRing} ${
+                    active === link.href
+                      ? "text-sky-400"
+                      : "text-slate-300 hover:text-sky-400"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              ))}
               <a
-                key={link.href}
-                href={link.href}
+                href={Resume}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className={`rounded-lg px-2 py-3 text-sm ${
-                  active === link.href
-                    ? "text-sky-400"
-                    : "text-slate-300 hover:text-sky-400"
-                }`}
+                className={`mt-2 rounded-lg bg-sky-400 px-3 py-3 text-center text-sm font-semibold text-slate-950 ${focusRing}`}
               >
-                {link.name}
+                Resume
               </a>
-            ))}
-            <a
-              href={Resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="mt-2 rounded-lg bg-sky-400 px-3 py-3 text-center text-sm font-semibold text-slate-950"
-            >
-              Resume
-            </a>
-          </div>
-        </Motion.div>
-      )}
+            </div>
+          </Motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+:root {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

@@ -1,47 +1,5 @@
+// Featured = the three projects that show the most complete full stack work.
 export const featuredProjects = [
-  {
-    title: "ResumeIQ — AI Powered Resume Analyser",
-    type: "AI Resume Analysis",
-    description:
-      "A React.js web application that compares resumes against job descriptions via REST API calls and delivers structured match feedback through a clear analysis interface.",
-    impact: [
-      "Implemented component-level state management for seamless multi-step resume analysis flow",
-      "Handled asynchronous Puter.js API requests for non-blocking UI interactions and real-time feedback",
-      "Designed reusable UI components with clear information hierarchy for match scoring display",
-    ],
-    tech: [
-      "React.js",
-      "React Router",
-      "JavaScript",
-      "Puter.js",
-      "REST API",
-      "Vercel",
-    ],
-    github: "https://github.com/rajnish-012/ai-resume-parser",
-    live: "https://ai-parseresume.vercel.app/",
-  },
-  {
-    title: "FaithConnect — Cross-Platform Mobile MVP",
-    type: "Mobile Community App",
-    description:
-      "A cross-platform mobile community app built with React Native and TypeScript, targeting iOS and Android from a single codebase with real-time data sync.",
-    impact: [
-      "Integrated Firebase Auth for secure user onboarding with persistent session management",
-      "Used Firestore real-time listeners for live data synchronization across devices",
-      "Built scalable mobile screens with TypeScript ensuring type-safe component architecture",
-    ],
-    tech: [
-      "React Native",
-      "TypeScript",
-      "Firebase",
-      "Firestore",
-      "Expo",
-      "Android",
-      "iOS",
-    ],
-    github: "https://github.com/rajnish-012/faithconnect",
-    live: "https://expo.dev/accounts/rajnish_kr/projects/faithconnect/builds/8350720f-cb20-445a-875c-c8e2b2371346",
-  },
   {
     title: "DMPL — Delhi Medicos Premier League",
     type: "Full-Stack Web Platform",
@@ -60,12 +18,9 @@ export const featuredProjects = [
       "Tailwind CSS",
       "Server-Side Events",
     ],
-    github : null,
+    github: null,
     live: "https://dmplt20.com",
   },
-];
-
-export const otherProjects = [
   {
     title: "Vidyartha — AI-Powered EdTech Platform",
     type: "Full-Stack Web Platform",
@@ -90,40 +45,78 @@ export const otherProjects = [
     live: null,
   },
   {
-  title: "EasyAppoint — Appointment Booking System",
-  type: "Appointment Booking Platform",
-  description:
-    "Engineered a full-stack booking system using PHP, MySQL, and JavaScript, supporting concurrent user and admin appointment workflows.",
-  impact: [
-    "Designed normalized relational database schema",
-    "Built role-aware dashboards for users and admins",
-    "Handled scheduling, cancellation, and appointment management flows",
-  ],
-  tech: ["PHP", "MySQL", "JavaScript", "CSS", "XAMPP"],
-  github: "https://github.com/Tanujkumarsingh/EassyAppoint",
-  live: null,
-},
-{
-  title: "Soil Farming Agent — Internship Portal",
-  description:
-    "Full-stack internship platform with Firebase Authentication, role-based access control, dynamic dashboards, and Firestore real-time operations.",
-  tech: ["JavaScript", "Firebase", "Firestore", "HTML", "CSS"],
-  github: "https://github.com/rajnish-012/soil-farming-agent",
-  live: "https://soil-login-and-signup.web.app/",
-},
-{
-  title: "EasyCook — Recipe Discovery App",
-  description:
-    "Recipe discovery web app focused on simple interactions, readable recipe content, and a responsive JavaScript UI.",
-  tech: ["JavaScript", "HTML", "CSS"],
-  github: "https://github.com/rajnish-012/EasyCook",
-  live: "https://easy-cook-lyart.vercel.app/",
-},
-{
-  title: "Scientific Calculator — Advanced Web Calculator",
-  description:
-    "Browser-based scientific calculator with standard and advanced arithmetic operations in a clean interface.",
-  tech: ["JavaScript", "HTML", "CSS"],
-  github: "https://github.com/rajnish-012/Scientific-Calculator",
-  live: null,
-}]
+    title: "FaithConnect — Cross-Platform Mobile MVP",
+    type: "Mobile Community App",
+    description:
+      "A cross-platform mobile community app built with React Native and TypeScript, targeting iOS and Android from a single codebase with real-time data sync.",
+    impact: [
+      "Integrated Firebase Auth for secure user onboarding with persistent session management",
+      "Used Firestore real-time listeners for live data synchronization across devices",
+      "Built scalable mobile screens with TypeScript ensuring type-safe component architecture",
+    ],
+    tech: [
+      "React Native",
+      "TypeScript",
+      "Firebase",
+      "Firestore",
+      "Expo",
+      "Android",
+      "iOS",
+    ],
+    github: "https://github.com/rajnish-012/faithconnect",
+    live: "https://expo.dev/accounts/rajnish_kr/projects/faithconnect/builds/8350720f-cb20-445a-875c-c8e2b2371346",
+  },
+];
+
+export const otherProjects = [
+  {
+    title: "ResumeIQ — AI Powered Resume Analyser",
+    type: "AI Resume Analysis",
+    description:
+      "A React.js web application that compares resumes against job descriptions via REST API calls and delivers structured match feedback through a clear analysis interface.",
+    tech: [
+      "React.js",
+      "React Router",
+      "JavaScript",
+      "Puter.js",
+      "REST API",
+      "Vercel",
+    ],
+    github: "https://github.com/rajnish-012/ai-resume-parser",
+    live: "https://ai-parseresume.vercel.app/",
+  },
+  {
+    title: "EasyAppoint — Appointment Booking System",
+    type: "Appointment Booking Platform",
+    description:
+      "Engineered a full-stack booking system using PHP, MySQL, and JavaScript, supporting concurrent user and admin appointment workflows.",
+    tech: ["PHP", "MySQL", "JavaScript", "CSS", "XAMPP"],
+    github: "https://github.com/Tanujkumarsingh/EassyAppoint",
+    live: null,
+  },
+  {
+    title: "Soil Farming Agent — Internship Portal",
+    type: "Full-Stack Web App",
+    description:
+      "Full-stack internship platform with Firebase Authentication, role-based access control, dynamic dashboards, and Firestore real-time operations.",
+    tech: ["JavaScript", "Firebase", "Firestore", "HTML", "CSS"],
+    github: "https://github.com/rajnish-012/soil-farming-agent",
+    live: "https://soil-login-and-signup.web.app/",
+  },
+  {
+    title: "EasyCook — Recipe Discovery App",
+    description:
+      "Recipe discovery web app focused on simple interactions, readable recipe content, and a responsive JavaScript UI.",
+    tech: ["JavaScript", "HTML", "CSS"],
+    github: "https://github.com/rajnish-012/EasyCook",
+    live: "https://easy-cook-lyart.vercel.app/",
+  },
+  {
+    title: "Scientific Calculator — Advanced Web Calculator",
+    description:
+      "Browser-based scientific calculator with standard and advanced arithmetic operations in a clean interface.",
+    tech: ["JavaScript", "HTML", "CSS"],
+    github: "https://github.com/rajnish-012/Scientific-Calculator",
+    live: null,
+  },
+];

@@ -1,6 +1,8 @@
 export const skillGroups = [
   {
     title: "Frontend",
+    icon: "monitor",
+    summary: "Interfaces and state",
     skills: [
       "React.js",
       "React Native",
@@ -15,6 +17,8 @@ export const skillGroups = [
   },
   {
     title: "Backend & Data",
+    icon: "database",
+    summary: "APIs, auth, and databases",
     skills: [
       "Node.js",
       "Express.js",
@@ -23,21 +27,19 @@ export const skillGroups = [
       "Firebase Functions",
       "Firebase Auth",
       "Firestore",
-      "MySQL",
       "MongoDB",
-      "SQL Query Optimization",
+      "PocketBase",
     ],
   },
   {
     title: "Languages & CS",
+    icon: "code",
+    summary: "Languages and fundamentals",
     skills: [
-      "C",
-      "C++",
+      
+      "C++(Oops)",
       "Python",
-      "PHP",
-      "Data Structures",
-      "Algorithms",
-      "OOP",
+      "DSA",
       "DBMS",
       "Operating Systems",
       "Computer Networks",
@@ -45,6 +47,8 @@ export const skillGroups = [
   },
   {
     title: "Tools & Concepts",
+    icon: "settings",
+    summary: "Workflow and architecture",
     skills: [
       "Git",
       "GitHub",
