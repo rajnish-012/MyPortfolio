@@ -245,7 +245,7 @@ const Particle = ({ reduce }) => {
       size: Math.random() * 2 + 1,
       duration: Math.random() * 8 + 6,
       delay: Math.random() * 4,
-    }))
+    })),
   );
 
   if (reduce) return null;
@@ -504,7 +504,8 @@ const Hero = () => {
             className="max-w-xl text-sm leading-relaxed text-slate-300/90 md:text-base lg:text-lg"
             variants={fadeUp(reduceMotion, 0.1)}
           >
-            I am <span className="text-white">Rajnish Kumar</span>, a full stack developer and recent{" "}
+            I am <span className="text-white">Rajnish Kumar</span>, a full stack
+            developer and recent{" "}
             <span className="text-white">
               B.Tech Computer Science graduate (2026)
             </span>{" "}
@@ -516,8 +517,8 @@ const Hero = () => {
             >
               {profileData.shortSchool}
             </Motion.span>
-            . I build React and Next.js interfaces, Node.js and NestJS APIs, and the
-            SQL, MongoDB, and Firebase data layers behind them, and I am
+            . I build React and Next.js interfaces, Node.js and NestJS APIs, and
+            the SQL, MongoDB, and Firebase data layers behind them, and I am
             currently a full stack developer intern at ARA Web Technology.
           </Motion.p>
 

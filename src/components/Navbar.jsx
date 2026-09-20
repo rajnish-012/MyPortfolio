@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion as Motion } from "framer-motion";
-import Resume from "../assets/Rajnish_kumar_Resume.pdf";
+import Resume from "../assets/Rajnish_Kumar_Resume.pdf";
 
 const links = [
   { name: "Home", href: "#hero" },

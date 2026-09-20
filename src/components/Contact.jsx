@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion as Motion } from "framer-motion";
-import Resume from "../assets/Rajnish_kumar_Resume.pdf";
+import Resume from "../assets/Rajnish_Kumar_Resume.pdf";
 import SectionHeader from "./SectionHeader";
 import AnimatedSection from "./AnimatedSection";
 import { profile } from "../data/profile";
@@ -105,7 +105,7 @@ const Contact = () => {
         setStatus(
           result?.errors
             ? result.errors.map((error) => error.message).join(", ")
-            : "Something went wrong. Please try again."
+            : "Something went wrong. Please try again.",
         );
       }
     } catch {
