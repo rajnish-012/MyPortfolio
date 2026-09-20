@@ -7,7 +7,11 @@ import {
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import profileImage from "../assets/Profile.webp"; // ← convert Profile.png → Profile.webp using squoosh.app
+<<<<<<< HEAD
 import Resume from "../assets/Rajnish_Kumar_Resume.pdf";
+=======
+import Resume from "../assets/August_Resume_Rajnish_Kumar.pdf";
+>>>>>>> ac46aa0bbbb7f9ebc87ae04df00252b1f5c0cedb
 import { heroStats, highlights, profile as profileData } from "../data/profile";
 
 /* ─── Variants ─────────────────────────────────────── */
@@ -493,7 +497,11 @@ const Hero = () => {
         <div>
           {/* Badge */}
           <GlitchBadge reduce={reduceMotion}>
+<<<<<<< HEAD
             Full Stack Developer / React, Next.js & Node.js
+=======
+            Software Engineer / React, Node.js & Real-Time Systems
+>>>>>>> ac46aa0bbbb7f9ebc87ae04df00252b1f5c0cedb
           </GlitchBadge>
 
           {/* Animated headline */}
